@@ -1,0 +1,13 @@
+.nav-container {
+  background-color: var(--rose);
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-logo {
+  max-width: 100%;
+  height: 50px;
+}

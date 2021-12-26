@@ -1,0 +1,13 @@
+:root{
+  --indigo: #01427c;
+  --orange: #f29b18;
+  --blue-green: #17bebb;
+  --pink: #a1869e;
+  --rose: #e71d36;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
