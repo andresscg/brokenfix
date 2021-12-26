@@ -4,10 +4,12 @@
   --blue-green: #17bebb;
   --pink: #a1869e;
   --rose: #e71d36;
+  --green: #39d03b;
 }
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
