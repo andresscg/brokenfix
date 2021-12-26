@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 
-const serviceSchema = new mongoose.Schema({
-    name: { type: 'string', required: true },
-    lastName: { type: 'string', required: true },
-    email: { type: 'string', required: true },
-    img: { type: 'string', required: true },
-    password: { type: 'string', required: true },
-    services: { type: 'string', required: true },
-    schedule: { type: 'string', required: true },
-    reviews: [{ comment: { type: 'string', required: true }, rating: { type: Number, min: 1, max: 5 } }],
+const workerSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    lastName: { type: String, required: true },
+    email: { type: String, required: true },
+    img: { type: String, required: true },
+    password: { type: String, required: true },
+    address: { type: String, required: true },
+    services: { type: mongoose.Types.ObjectId, ref: 'service', required: true },
+    schedule: { days: [{ rangeTime: { type: String, required: true }, bol: { type: Boolean, required: true } }] },
+    reviews: [{ comment: { type: String, required: true }, rating: { type: Number, min: 1, max: 5 }, user: { type: mongoose.Types.ObjectId, ref: 'user', required: true } }],
 });
 
-const Service = mongoose.model('service', serviceSchema);
+const Worker = mongoose.model('worker', workerSchema);
 
-module.exports = Service;
+module.exports = Worker;
