@@ -3,12 +3,17 @@ const passport = require('../config/passport');
 
 const servicesControllers = require('../controllers/servicesControllers')
 const workerControllers = require('../controllers/workerControllers')
+const userControllers = require('../controllers/userControllers')
+
 const { addService } = servicesControllers
 const { addWorker } = workerControllers
+const { addUser } = userControllers
 
 Router.route('/services')
     .post(addService)
 Router.route('/workers')
     .post(addWorker)
+Router.route('/user')
+    .post(passport.authenticate('jwt', { session: false }), addUser)
 
 module.exports = Router
