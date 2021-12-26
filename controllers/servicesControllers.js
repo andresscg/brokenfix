@@ -34,7 +34,7 @@ const servicesControllers = {
         const id = req.params.id
         let updatedService
         try {
-            updatedService = Service.getOneAndUpdate({ _id: id }, bodyService, { new: true })
+            updatedService = await Service.getOneAndUpdate({ _id: id }, bodyService, { new: true })
             res.json({ succes: true, updatedService })
         } catch (error) {
             res.json({ succes: false, error })
@@ -43,7 +43,7 @@ const servicesControllers = {
     deleteService: async (req, res) => {
         const id = req.params.id
         try {
-            updatedService = Service.getOneAndDelete({ _id: id })
+            await Service.getOneAndDelete({ _id: id })
             res.json({ succes: true, updatedService })
         } catch (error) {
             res.json({ succes: false, error })
