@@ -20,10 +20,10 @@ const Navbar = () => {
           </Link>
       </div>
       <div className='cont-log-sign'>
-        <Link to="register" className='navbar-links'>
+        <Link to="sign" className='navbar-links'>
           Sign Up
         </Link>
-        <Link to="/login" className='navbar-links'>
+        <Link to="/sign" className='navbar-links'>
           Log In
         </Link>
       </div>
