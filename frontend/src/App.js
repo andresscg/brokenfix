@@ -1,20 +1,13 @@
-import React from 'react';
-import './App.css'
-import Home from './pages/Home.js';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate
-} from "react-router-dom";
+import './App.css';
+import { BrowserRouter, Routes, Router } from 'react-router-dom'
+import Navbar from './components/Navbar'
+
 
 function App() {
   return (
-
-    <h2>s</h2>
-
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
   );
 }
 
