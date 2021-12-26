@@ -12,14 +12,9 @@ import {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        
 
-        <Route path="*" element={<Navigate to="/"/>} />
-      </Routes>
-    </BrowserRouter>
+    <h2>s</h2>
+
   );
 }
 
