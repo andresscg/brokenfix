@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Hero.css'
 
-const HeroHome = () => {
+const Hero = () => {
   return (
     <div className="hero">
       <div id="herotext">
@@ -13,4 +13,4 @@ const HeroHome = () => {
   )
 }
 
-export default HeroHome
+export default Hero
