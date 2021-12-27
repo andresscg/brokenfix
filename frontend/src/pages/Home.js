@@ -2,4 +2,4 @@ const Home = () => {
     return
 }
 
-export default Service;
+export default Home;

@@ -1,7 +1,6 @@
 require("../config/database")
 const Router = require('express').Router();
 const passport = require('../config/passport');
-const userControllers = require ('../controllers/userControllers');
 
 const servicesControllers = require('../controllers/servicesControllers')
 const workerControllers = require('../controllers/workerControllers')
@@ -9,7 +8,7 @@ const userControllers = require('../controllers/userControllers')
 
 const { addService } = servicesControllers
 const { addWorker } = workerControllers
-const { addUser } = userControllers
+const { addUser, signin } = userControllers
 
 Router.route('/services')
     .post(addService)
@@ -19,6 +18,6 @@ Router.route('/users')
     .post(addUser)
 
 Router.route('/user')
-    .post(newUser)
+    .post(signin)
 
 module.exports = Router
