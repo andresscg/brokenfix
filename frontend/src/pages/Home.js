@@ -7,18 +7,13 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <>
-      <head>
-        <Navbar />
-        <Hero />
-      </head>
+      <Hero />
       <body>
         <main className="home-main d-flex justify-content-center p-5">
           <h1>Home Services Broke&Fix</h1>
         </main>
       </body>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </>
   );
 };
