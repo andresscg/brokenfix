@@ -27,6 +27,48 @@ justify-content: flex-end;
     width: 65%;
     margin-top: -2.4rem;
 }
+.buttonshero{
+    display: flex;
+    flex-direction: row;
+    margin-top: -3rem;
+    justify-content: center;
+}
+.btnhero{
+    height: 14%;
+    width: 12%;
+    margin-left: 3rem;
+    border: none;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.301);
+}
+.btnhero:hover{
+    background-color: #8AE38C;
+}
+.imgbtn{
+    height: 100%;
+    width: 100%;
+}
+@media(max-width: 1030px){
+    .heroAboutus{
+        font-size: 40px;
+    }
+    #bgheroimg{
+        height: 70vh;
+        width: 55%;
+        margin-top: .1rem;
+    }
+    .heroAboutus2{
+            font-size: 18px;
+    }
+    .buttonshero{
+        margin-top: -2.5rem;
+    }
+    .btnhero{
+        height: 12%;
+        width: 13%;
+        margin-left: 1.5rem;
+    }
+    
+}
 @media  (max-width: 799px){
 .heroAboutus{
     font-size: 30px;
@@ -39,6 +81,15 @@ justify-content: flex-end;
 .heroAboutus2{
         font-size: 15px;
     }
+.buttonshero{
+    margin-top: -2rem;
+}
+.btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1.5rem;
+    }
+    
 }
 @media (max-width:566px){
     .hero{
@@ -62,7 +113,20 @@ justify-content: flex-end;
     #bgheroimg{
         width: 85%;
         height: 40vh;
-    }  
+    } 
+    .btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1rem;
+    } 
+    .buttonshero{
+        margin-top: -1rem;
+    }
+    .btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1rem;
+    }
 }    
 @media (max-width:385px){
     .hero{
@@ -86,6 +150,14 @@ justify-content: flex-end;
     #bgheroimg{
         width: 85%;
         height: 45vh;
+    }
+    .buttonshero{
+        margin-top: -1rem;
+    }
+    .btnhero{
+        height: 14%;
+        width: 14%;
+        margin-left: .5rem;
     }
     
 }
