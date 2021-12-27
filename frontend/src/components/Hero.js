@@ -3,7 +3,6 @@ import "../styles/Hero.css";
 
 const Hero = () => {
   return (
-<<<<<<< HEAD
     <>
       <div className="hero">
         <div id="herotext">
@@ -23,22 +22,5 @@ const Hero = () => {
     </>
   )
 }
-=======
-    <div className="hero">
-      <div id="herotext">
-        <p className="heroAboutus">
-          Make the most of your home now more than ever!
-        </p>
-        <p className="heroAboutus2">
-          At Broke&fix we take pride in partnering with skilled craftsmen{" "}
-          <br></br>from a variety of specialties to provide you with peace of
-          mind <br></br> when tackling all of your home improvement needs.
-        </p>
-      </div>
-      <img id="bgheroimg" src="../assets/hero2.png" alt="herobackground" />
-    </div>
-  );
-};
->>>>>>> b825d8b025180a9095446639e687b81874269b87
 
 export default Hero;
