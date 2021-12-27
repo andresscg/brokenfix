@@ -1,0 +1,91 @@
+.hero{
+width: 100%;
+height: 70vh;
+background: linear-gradient(90deg, rgba(32,236,77,1) 5%, rgba(21,165,60,1) 50%);
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+}
+.heroAboutus{
+    font-family:fantasy;
+    color: rgba(240, 248, 255, 0.842);
+    font-size: 55px;
+    margin-left: 4rem;
+    margin-top: 5rem;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.37);
+
+}
+.heroAboutus2{
+    color: rgba(255, 255, 255, 0.877);
+    font-family:cursive;
+    font-size: 18px;
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+#bgheroimg{
+    height: 75vh;
+    width: 65%;
+    margin-top: -2.4rem;
+}
+@media  (max-width: 799px){
+.heroAboutus{
+    font-size: 30px;
+}
+#bgheroimg{
+    height: 70vh;
+    width: 55%;
+    margin-top: .1rem;
+}
+.heroAboutus2{
+        font-size: 15px;
+    }
+}
+@media (max-width:566px){
+    .hero{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    #herotext{
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+    .heroAboutus{
+        font-size: 20px;
+        margin-left: 1rem;
+    }
+    .heroAboutus2{
+        font-size: 15px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    #bgheroimg{
+        width: 85%;
+        height: 40vh;
+    }  
+}    
+@media (max-width:385px){
+    .hero{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    #herotext{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .heroAboutus{
+        font-size: 20px;
+        margin-left: 1rem;
+    }
+    .heroAboutus2{
+        font-size: 12px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    #bgheroimg{
+        width: 85%;
+        height: 45vh;
+    }
+    
+}

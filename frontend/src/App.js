@@ -1,13 +1,22 @@
-import "./App.css";
-import { BrowserRouter, Routes, Router } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Navbar from './components/Navbar';
+import Home from './pages/Home'
+import Sign from './pages/Sign';
+import Services from './pages/Services'
+import Service from './pages/Service'
+
 
 function App() {
   return (
     <BrowserRouter>
-      <Home />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:id" element={<Service />} />
+        <Route path="/sign" element={<Sign />} />
+      </Routes>
     </BrowserRouter>
   );
 }
