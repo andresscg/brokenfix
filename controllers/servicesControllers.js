@@ -6,16 +6,40 @@ const servicesControllers = {
         const servicesBody = req.body
         let service
         try {
-            service = await Service(servicesBody).save()
-            res.json({ succes: true, service })
+            if (req.user.admin) {
+
+                service = await Service(servicesBody).save()
+                res.json({ succes: true, service })
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
+            }
         } catch (error) {
             res.json({ succes: false, error })
         }
     },
     getServices: async (req, res) => {
         try {
-            const services = await Service.find()
-            res.json({ succes: true, services })
+            if (req.user.admin) {
+
+                const services = await Service.find()
+                res.json({ succes: true, services })
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
+            }
+        } catch (error) {
+            res.json({ succes: false, error })
+        }
+    },
+    deleteService: async (req, res) => {
+        const id = req.params.id
+        try {
+            if (req.user.admin) {
+                await Service.getOneAndDelete({ _id: id })
+                res.json({ succes: true, updatedService })
+
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
+            }
         } catch (error) {
             res.json({ succes: false, error })
         }
@@ -23,8 +47,13 @@ const servicesControllers = {
     getServiceById: async (req, res) => {
         const id = req.params.id
         try {
-            const service = await Service.findOne({ _id: id })
-            res.json({ succes: true, service })
+            if (req.user.admin) {
+
+                const service = await Service.findOne({ _id: id })
+                res.json({ succes: true, service })
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
+            }
         } catch (error) {
             res.json({ succes: false, error })
         }
@@ -34,20 +63,16 @@ const servicesControllers = {
         const id = req.params.id
         let updatedService
         try {
-            updatedService = await Service.getOneAndUpdate({ _id: id }, bodyService, { new: true })
-            res.json({ succes: true, updatedService })
+            if (req.user.admin) {
+
+                updatedService = await Service.getOneAndUpdate({ _id: id }, bodyService, { new: true })
+                res.json({ succes: true, updatedService })
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
+            }
         } catch (error) {
             res.json({ succes: false, error })
         }
     },
-    deleteService: async (req, res) => {
-        const id = req.params.id
-        try {
-            await Service.getOneAndDelete({ _id: id })
-            res.json({ succes: true, updatedService })
-        } catch (error) {
-            res.json({ succes: false, error })
-        }
-    }
 }
 module.exports = servicesControllers;

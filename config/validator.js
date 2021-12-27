@@ -3,7 +3,7 @@ const joi = require('joi')
 const validator = (req, res, next) => {  // se valida el register
 
     const schema = joi.object({
-        name: joi.string().max(12).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
+        name: joi.string().max(18).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
             'string.min': 'Name must contain more than 3 characters',
             'string.empty': 'Name is not allowed to be empty',
             'string.pattern.base': 'Name should contain just letters from a-z or A-Z',
@@ -15,7 +15,7 @@ const validator = (req, res, next) => {  // se valida el register
             'string.pattern.base': 'Password should contain just letters from a-z or A-Z',
         }),
         address: {
-            number: joi.number().min(3).trim().messages({
+            number: joi.number().min(3).messages({
                 'string.min': 'Number must contain more than 3 characters',
                 'string.empty': 'Number is not allowed to be empty',
             }),
@@ -42,11 +42,12 @@ const validator = (req, res, next) => {  // se valida el register
             'string.empty': 'img is not allowed to be empty',
             'string.uri': 'img must be a valid uri'
         }),
-        phoneNumber: joi.number().required().trim().messages({}).messages({
+        phoneNumber: joi.number().required().messages({
             'string.empty': 'phoneNumber is not allowed to be empty',
             'string.uri': 'phoneNumber must be a valid uri'
         })
         ,
+        workers: joi.array().messages({}),
         admin: joi.boolean(),
         google: joi.boolean(),
     })
