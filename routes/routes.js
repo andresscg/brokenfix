@@ -13,7 +13,7 @@ Router.route('/services')
     .post(addService)
 Router.route('/workers')
     .post(addWorker)
-Router.route('/user')
-    .post(passport.authenticate('jwt', { session: false }), addUser)
+Router.route('/users')
+    .post(addUser)
 
 module.exports = Router

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { email, google, password, userName, lastName, img, country } = req.body
+        let { password, email, address, workers, admin, phoneNumber, img, lastName, name } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -12,20 +12,22 @@ const userControllers = {
             } else {
                 const hashPass = bcryptjs.hashSync(password, 10)
                 const newUser = new User({
-                    email,
-                    google,
                     password: hashPass,
-                    userName,
+                    address,
+                    workers,
+                    admin,
+                    phoneNumber,
                     lastName,
-                    img,
-                    country
+                    name,
+                    email
                 })
                 await newUser.save()
-                const token = jwt.sign({ ...newUser }, process.env.SECRET_KEY)
+                const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
                 const { _id } = newUser
-                res.json({ success: true, response: { userName, img, token, _id }, error: null })
+                res.json({ success: true, response: { name, img, token, _id }, error: null })
             }
         } catch (error) {
+            console.log(error);
             res.json({ success: false, response: null, error: error })
         }
     },
@@ -42,8 +44,8 @@ const userControllers = {
                 let samePass = bcryptjs.compareSync(password, userExists.password)
                 if (samePass) {
                     const token = jwt.sign({ ...userExists }, process.env.SECRET_KEY)
-                    const { userName, img, _id } = userExists
-                    res.json({ success: true, response: { userName, img, token, _id }, error: null })
+                    const { name, img, _id } = userExists
+                    res.json({ success: true, response: { name, img, token, _id }, error: null })
                 } else {
                     res.json({ success: false, error: "email y/o contraseña incorrectos" })
                 }
