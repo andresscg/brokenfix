@@ -1,5 +1,5 @@
-const citiesReducer = (state = {}, action) => {
+const servicesReducer = (state = {}, action) => {
 
 }
 
-export default citiesReducer;
+export default servicesReducer;

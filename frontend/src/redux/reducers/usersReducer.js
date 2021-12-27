@@ -11,7 +11,7 @@ const usersReducer = (
             token: action.payload.token
         }
 
-    }else if(action.type === 'LOG_OUT'){
+    } else if(action.type === 'LOG_OUT'){
         localStorage.clear()
         return {
             user : null,
