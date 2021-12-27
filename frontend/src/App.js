@@ -11,8 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="Sign" element={<Sign />} />
-
+        <Route path="/sign" element={<Sign />} />
       </Routes>
     </BrowserRouter>
   );
