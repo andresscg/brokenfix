@@ -7,8 +7,7 @@ import HeroHome from './components/Hero';
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <HeroHome/>
+     
     </BrowserRouter>
   );
 }

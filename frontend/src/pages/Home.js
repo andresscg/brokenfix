@@ -1,5 +1,9 @@
 const Home = () => {
-    return
-}
+    return(
+     <>
+        <Navbar />
+        <HeroHome/> 
+    </>
+    )}
 
 export default Service;
