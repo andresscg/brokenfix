@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import usersActions from "../redux/actions/usersActions";
-// import axios from "axios";
 // import { GoogleLogin } from "react-google-login";
 import "../styles/SignForm.css";
 import { toast } from 'react-toastify'
@@ -11,20 +10,21 @@ const SignUp = (props) => {
   // const dispatch = useDispatch();
   // const [countries, setCountries] = useState([]);
   // const [newUser, setNewUser] = useState({
-  //   firstName: "",
+  //   name: "",
   //   lastName: "",
   //   email: "",
+  //   img: "",
   //   password: "",
-  //   country: "",
-  //   photoUrl: "",
+  //   phoneNumber: "",
+  //   address: {
+  //      street: "",
+  //      number: "",
+  //      commune: "",
+  //    }
   // });
-  // useEffect(() => {
-  //   // window.scroll(0, 0);
-  //   axios
-  //     .get("https://restcountries.com/v3.1/all")
-  //     .then((response) => setCountries(response.data))
-  //     .catch((error) => console.error(error));
-  // }, []);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   // const valuesHandler = (e) => {
   //   const value = e.target.value;
@@ -46,7 +46,7 @@ const SignUp = (props) => {
   //       });
   //   } else {
   //     try {
-  //       let response = await dispatch(usersActions.signUp(newUser));
+  //       let response = await dispatch(usersActions.signUpUser(newUser));
   //       if (response.data.success) {
   //         toast.success('Signed in successfully, welcome back!', {
   //           position: "bottom-right",
@@ -88,16 +88,21 @@ const SignUp = (props) => {
 
   // const responseGoogle = async (res) => {
   //   let googleUser = {
-  //     firstName: res.profileObj.givenName,
+  //     name: res.profileObj.givenName,
   //     lastName: res.profileObj.familyName,
   //     email: res.profileObj.email,
   //     password: res.profileObj.googleId,
-  //     photoUrl: res.profileObj.imageUrl,
-  //     country: "Argentina",
+  //     img: res.profileObj.imageUrl,
+  //     phoneNumber: 0,
+  //     address: {
+  //        street: " ",
+  //        number: 0,
+  //        commune: " ",
+  //      }
   //     google: true,
   //   };
   //   try {
-  //     let response = await dispatch(usersActions.signUp(googleUser));
+  //     let response = await dispatch(usersActions.signUpUser(googleUser));
   //     if (response.data.success) {
   //       toast.success('Signed in successfully, welcome back!', {
   //         position: "bottom-right",
@@ -134,8 +139,8 @@ const SignUp = (props) => {
           <input
             type="text"
             placeholder="First Name"
-            name="firstName"
-            // value={newUser.firstName}
+            name="name"
+            // value={newUser.name}
             // onChange={valuesHandler}
           />
         </div>
@@ -173,35 +178,54 @@ const SignUp = (props) => {
       <div className="input-field">
         <i className="fas fa-lock"></i>
         <input
-          type="text"
-          placeholder="Profile Pic URL"
-          name="photoUrl"
-          // value={newUser.photoUrl}
+          type="number"
+          placeholder="Phone Number"
+          name="phoneNumber"
+          // value={newUser.phoneNumber}
           // onChange={valuesHandler}
         />
       </div>
       <div className="input-field">
-        <i className="fas fa-lock"></i>
+        <i class="fas fa-portrait"></i>
         <input
           type="text"
           placeholder="Profile Pic URL"
-          name="photoUrl"
-          // value={newUser.photoUrl}
+          name="img"
+          // value={newUser.img}
           // onChange={valuesHandler}
         />
       </div>
       <div className="input-field">
-        <i className="fas fa-lock"></i>
+        <i class="fas fa-house-user"></i>
         <input
           type="text"
-          placeholder="Profile Pic URL"
-          name="photoUrl"
-          // value={newUser.photoUrl}
+          placeholder="Commune"
+          name="commune"
+          // value={newUser.address.commune}
           // onChange={valuesHandler}
         />
       </div>
-      
       <div className="input-field">
+        <i class="fas fa-house-user"></i>
+        <input
+          type="text"
+          placeholder="Street"
+          name="street"
+          // value={newUser.address.street}
+          // onChange={valuesHandler}
+        />
+      </div>
+      <div className="input-field">
+        <i class="fas fa-house-user"></i>
+        <input
+          type="text"
+          placeholder="Number"
+          name="number"
+          // value={newUser.address.number}
+          // onChange={valuesHandler}
+        />
+      </div>
+      {/* <div className="input-field">
         <i className="fas fa-lock"></i>
         <select
           type="text"
@@ -213,7 +237,7 @@ const SignUp = (props) => {
           <option disabled value="Select your country">
             Select your country
           </option>
-          {/* {countries
+           {countries
             .sort((a, b) => {
               if (a.name.common > b.name.common) {
                 return 1;
@@ -229,9 +253,9 @@ const SignUp = (props) => {
                   {country.name.common}
                 </option>
               );
-            })} */}
+            })} 
         </select>
-      </div>
+      </div> */}
       <div className="sign-btns">
         <button className="btn sign-up-btn" 
         // onClick={formHandler}

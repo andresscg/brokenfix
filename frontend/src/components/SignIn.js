@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import "../styles/SignForm.css";
 import { toast } from "react-toastify";
 
-const SignForm = (props) => {
+const SignIn = (props) => {
   // const dispatch = useDispatch();
   // const [signUser, setSignUser] = useState({ email: "", password: "" });
   // const signHandler = (e) => {
@@ -28,7 +28,7 @@ const SignForm = (props) => {
   //     });
   //   } else {
   //     try {
-  //       let response = await dispatch(usersActions.signIn(signUser));
+  //       let response = await dispatch(usersActions.signInUser(signUser));
   //       if (!response.data.success) {
   //         toast.warn(
   //           "Problem signing in, maybe your email or password are incorrect!",
@@ -67,7 +67,7 @@ const SignForm = (props) => {
   //     flagGoogle: true,
   //   };
   //   try {
-  //     let response = await dispatch(usersActions.signIn(logInGoogle));
+  //     let response = await dispatch(usersActions.signInUser(logInGoogle));
   //     if (!response.data.success) {
   //       toast.warn("Problem signing in!", {
   //         position: "bottom-right",
@@ -136,4 +136,4 @@ const SignForm = (props) => {
   );
 };
 
-export default SignForm;
+export default SignIn;

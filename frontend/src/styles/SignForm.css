@@ -97,7 +97,16 @@ form.sign-in-form {
   display: flex;
   gap: 10px;
 }
+.name-input {
+  max-width: 320px;
+}
+@media (min-width: 1000px) {
+  .name-input {
+    max-width: 450px;
+  }
+  
 
+}
 .name-input .input-field {
   max-width: 50%;
 }
@@ -282,9 +291,6 @@ form.sign-in-form {
     transition: 1s 0.8s ease-in-out;
   }
 
-  .name-input {
-    max-width: 430px;
-  }
   .signin-signup,
   .container-sign.sign-up-mode .signin-signup {
     left: 50%;
@@ -351,7 +357,7 @@ form.sign-in-form {
 
   .container-sign.sign-up-mode:before {
     transform: translate(-50%, 100%);
-    bottom: 32%;
+    bottom: 29%;
     right: initial;
   }
 
@@ -379,10 +385,6 @@ form.sign-in-form {
 @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
-  }
-
-  .name-input {
-    max-width: 350px;
   }
 
   .image {
