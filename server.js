@@ -6,6 +6,7 @@ const app = express();
 const passport = require('passport');
 require('./config/database');
 
+
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
