@@ -41,7 +41,7 @@ const Sign = (props) => {
               Sign up
             </button>
           </div>
-          <img src="assets/log.svg" className="image" alt="" />
+          <img src="assets/sign/interior-design.svg" className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
@@ -58,7 +58,7 @@ const Sign = (props) => {
               Sign in
             </button>
           </div>
-          <img src="assets/register.svg" className="image" alt="" />
+          <img src="assets/sign/services.svg" className="image" alt="" />
         </div>
       </div>
     </div>
