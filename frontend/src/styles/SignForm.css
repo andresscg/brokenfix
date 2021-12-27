@@ -371,6 +371,17 @@ form.sign-in-form {
     transform: translateY(45px);
   }
 
+  @media (max-width: 870px) {
+    .container-sign.sign-up-mode .right-panel .image,
+    .container-sign.sign-up-mode .right-panel .content {
+      transform: translateY(65px);
+    }
+    .container-sign.sign-up-mode:before {
+      bottom: 15%;
+      left: 35%;
+    }
+  }
+
   .right-panel .image,
   .right-panel .content {
     transform: translateY(300px);

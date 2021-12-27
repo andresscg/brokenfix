@@ -39,8 +39,4 @@ Router.route('/admin/workers')
 Router.route('/admin/workers/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteWorker)
 
-
-Router.route('/user')
-    .post(signin)
-
 module.exports = Router

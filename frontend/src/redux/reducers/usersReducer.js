@@ -18,7 +18,7 @@ const usersReducer = (
             token: null
         }
     } else {
-
+        return state
     }
 }
 

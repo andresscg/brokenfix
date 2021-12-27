@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { password, email, address, workers, admin, phoneNumber, img, lastName, name } = req.body
+        let { password, email, address, workers, admin, phoneNumber, img, lastName, name, google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -19,7 +19,8 @@ const userControllers = {
                     phoneNumber,
                     lastName,
                     name,
-                    email
+                    email,
+                    google
                 })
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import "../styles/SignForm.css";

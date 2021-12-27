@@ -4,7 +4,7 @@ import usersReducer from "./usersReducer";
 
 const rootReducer = combineReducers({
     // services: servicesReducer,
-    // users: usersReducer,
+    users: usersReducer,
 })
 
 export default rootReducer;

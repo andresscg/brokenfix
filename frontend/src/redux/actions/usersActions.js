@@ -3,19 +3,22 @@ import axios from 'axios';
 const usersActions =  {
     signUpUser: (newUser) => {
         return async(dispatch, getState) => {    
-            const res = await axios.post('http://localhost:4000/api/users/signup', {...newUser})
-            if(res.data.success) {
+            const res = await axios.post('http://localhost:4000/api/user/signup', {...newUser})
+            if(res.data.success && !res.data.error) {
                 dispatch({type:'LOG_USER', payload: res.data.response});
+                return res
             } else {
-                console.error(response)
+                console.error(res)
+                return res
             }
         }
     },
     signInUser: (logUser) => {
         return async(dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/users/signin', {...logUser})
+            const res = await axios.post('http://localhost:4000/api/user/signin', {...logUser})
             if(res.data.success){
                 dispatch({type: 'LOG_USER', payload: res.data.response})
+                return res
             } else {
                 console.error(res.data.response)
             }
