@@ -95,8 +95,8 @@ const userControllers = {
         const id = req.params.id
         try {
             if (req.user.admin) {
-                await User.findOneAndDelete({ id: id })
-                res.json({ success: true, msg: 'User was deleted' })
+                await User.findOneAndDelete({ _id: id })
+                res.json({ success: true, msg: 'User was deleted sccessfully' })
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }

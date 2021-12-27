@@ -47,7 +47,7 @@ const validator = (req, res, next) => {  // se valida el register
             'string.uri': 'phoneNumber must be a valid uri'
         })
         ,
-        workers: joi.array().required().messages({}),
+        workers: joi.array().messages({}),
         admin: joi.boolean(),
         google: joi.boolean(),
     })

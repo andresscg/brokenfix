@@ -33,13 +33,9 @@ const workerControllers = {
     getWorkers: async (req, res) => {
 
         try {
-            if (req.user.admin) {
+            const users = await Worker.find()
+            res.json({ success: true, users })
 
-                const users = await Worker.find()
-                res.json({ success: true, users })
-            } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
-            }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
         }
@@ -58,7 +54,7 @@ const workerControllers = {
             console.log(error)
         }
     },
-    modifyAWorker: async (req, res) => {
+    modifyWorker: async (req, res) => {
         let id = req.params.id
         let worker = req.body
         let update

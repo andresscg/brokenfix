@@ -19,13 +19,12 @@ const servicesControllers = {
     },
     getServices: async (req, res) => {
         try {
-            if (req.user.admin) {
 
-                const services = await Service.find()
-                res.json({ succes: true, services })
-            } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be admin' })
-            }
+
+            const services = await Service.find()
+            res.json({ succes: true, services })
+
+
         } catch (error) {
             res.json({ succes: false, error })
         }
@@ -34,14 +33,15 @@ const servicesControllers = {
         const id = req.params.id
         try {
             if (req.user.admin) {
-                await Service.getOneAndDelete({ _id: id })
-                res.json({ succes: true, updatedService })
+                await Service.findOneAndDelete({ _id: id })
+                res.json({ succes: true, msg: 'Service deleted successfully' })
 
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be admin' })
             }
         } catch (error) {
-            res.json({ succes: false, error })
+            console.log(error);
+            res.json({ succes: false, })
         }
     },
     getServiceById: async (req, res) => {
@@ -58,14 +58,13 @@ const servicesControllers = {
             res.json({ succes: false, error })
         }
     },
-    updateServiceById: async (req, res) => {
+    updateService: async (req, res) => {
         const bodyService = req.body
         const id = req.params.id
         let updatedService
         try {
             if (req.user.admin) {
-
-                updatedService = await Service.getOneAndUpdate({ _id: id }, bodyService, { new: true })
+                updatedService = await Service.findOneAndUpdate({ _id: id }, bodyService, { new: true })
                 res.json({ succes: true, updatedService })
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be admin' })
