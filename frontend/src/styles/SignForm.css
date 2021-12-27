@@ -368,7 +368,7 @@ form.sign-in-form {
 
   .container-sign.sign-up-mode .right-panel .image,
   .container-sign.sign-up-mode .right-panel .content {
-    transform: translateY(0px);
+    transform: translateY(45px);
   }
 
   .right-panel .image,
@@ -403,7 +403,7 @@ form.sign-in-form {
   }
 
   .container-sign.sign-up-mode:before {
-    bottom: 28%;
+    bottom: 15%;
     left: 50%;
   }
 }
