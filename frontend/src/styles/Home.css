@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-main {
+  background: #8ae38b7e;
+  width: 100%;
+  height: 100vh;
+}
+
+.home-main h1 {
+  color: #39d03b;
+  text-shadow: 2px 2px 4px rgb(1, 54, 1);
+}
+
+.carousel-inner {
+  width: 80%;
+}
+
+.carousel-inner h5,
+.carousel-inner p {
+  text-shadow: 1px 1px 2px rgb(1, 54, 1);
+}
+
+.home-img {
+  object-fit: cover;
+  object-position: top;
+  height: 60vh;
+}
