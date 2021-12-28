@@ -12,10 +12,10 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/> } />
+        <Route path="/services/:id" element={<Service/> } />
         <Route path="/services" element={<Services />} />
-        <Route path="/services/:id" element={<Service />} />
-        <Route path="/sign" element={<Sign />} />
+        <Route path="/sign" element={<Sign /> } />
       </Routes>
     </BrowserRouter>
   );
