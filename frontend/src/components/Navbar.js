@@ -32,11 +32,8 @@ const Navbar = (props) => {
       </div>
       { !props.user ? 
         <div className='cont-log-sign'>
-          <Link to="sign" className='navbar-links'>
-            Sign Up
-          </Link>
           <Link to="/sign" className='navbar-links'>
-            Log In
+            Sign In
           </Link>
         </div>
         :
