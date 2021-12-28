@@ -26,7 +26,6 @@ const SignUp = (props) => {
   const valuesHandler = (e) => {
     const value = e.target.value;
     const data = e.target.name;
-    console.log(value, data)
     setNewUser({ ...newUser, [data]: value });
   };
 
@@ -85,7 +84,6 @@ const SignUp = (props) => {
   };
 
   const responseGoogle = async (res) => {
-    console.log(res)
     let googleUser = {
       name: res.profileObj.givenName,
       lastName: res.profileObj.familyName,

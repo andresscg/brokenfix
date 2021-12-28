@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        console.log(req.body)
         let { password, email, street, commune, number, workers, admin, phoneNumber, img, lastName, name, google } = req.body
         try {
             const userExists = await User.findOne({ email })
@@ -18,6 +17,7 @@ const userControllers = {
                     commune,
                     number,
                     workers,
+                    img,
                     admin,
                     phoneNumber,
                     lastName,
@@ -36,8 +36,7 @@ const userControllers = {
         }
     },
     signin: async (req, res) => {
-        const {email, password, google} = req.body 
-        console.log(req.body)
+        const {email, password, google} = req.body
         try {
             const user = await User.findOne({email})
             if (!user) throw new Error ("Email or password incorrect");
@@ -50,11 +49,10 @@ const userControllers = {
             res.json({success: false, response: error.message})
         }
     },
-    authUser: (req, res) => {
+    authUser : (req, res) => {
         try {
-            const userAuth = req.user
-            res.json({ success: true, response: userAuth, error: null })
-        } catch (error) {
+            res.json({success: true, response: req.user, error: null})
+        } catch(error) {
             res.json({ success: false, response: null, error: error })
         }
     },

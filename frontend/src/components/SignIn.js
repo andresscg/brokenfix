@@ -61,7 +61,6 @@ const SignIn = (props) => {
   };
 
   const responseGoogle = async (res) => {
-    console.log(res)
     let logInGoogle = {
       email: res.profileObj.email,
       password: res.profileObj.googleId,
