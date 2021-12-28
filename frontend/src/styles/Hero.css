@@ -7,7 +7,8 @@ flex-direction: row;
 justify-content: flex-end;
 }
 .heroAboutus{
-    font-family:fantasy;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     color: rgba(240, 248, 255, 0.842);
     font-size: 55px;
     margin-left: 4rem;
@@ -17,7 +18,8 @@ justify-content: flex-end;
 }
 .heroAboutus2{
     color: rgba(255, 255, 255, 0.877);
-    font-family:cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     font-size: 18px;
     margin-top: 2rem;
     margin-left: 4rem;

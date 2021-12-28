@@ -38,7 +38,7 @@
   transition: .6s;
 }
 
-.cont-log-sign a:hover {
+.navbar-links:hover {
   background-color: #f0f8ff;
   color: var(--green);
 }
