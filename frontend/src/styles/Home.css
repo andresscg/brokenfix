@@ -21,17 +21,26 @@
   object-fit: cover;
 }
 
-.home-main-comments h3 {
+.home-main-comments {
   background: linear-gradient(
     90deg,
     #20ec4c93 5%,
     rgba(21, 165, 59, 0.185) 50%
   );
+  margin-left: 60%;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.home-main-comments h3 {
   margin-top: -6%;
-  z-index: 10;
 }
 
 h3 {
   color: #39d03b;
   text-shadow: 1px 2px 3px rgb(1, 54, 1);
+}
+
+p {
+  color: rgb(1, 54, 1);
 }
