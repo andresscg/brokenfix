@@ -33,8 +33,8 @@ const workerControllers = {
     getWorkers: async (req, res) => {
 
         try {
-            const users = await Worker.find()
-            res.json({ success: true, users })
+            const workers = await Worker.find()
+            res.json({ success: true, workers })
 
         } catch (error) {
             res.json({ success: false, response: null, error: error })
@@ -42,6 +42,7 @@ const workerControllers = {
     },
     deleteWorker: async (req, res) => {
         const id = req.params.id
+        console.log('aqui');
         try {
             if (req.user.admin) {
                 await Worker.findOneAndDelete({ _id: id })
@@ -56,13 +57,13 @@ const workerControllers = {
     },
     modifyWorker: async (req, res) => {
         let id = req.params.id
-        let worker = req.body
-        let update
+        let workerBody = req.body
+        let updateWorker
         try {
             if (req.user.admin) {
 
-                update = await Worker.findOneAndUpdate({ _id: id }, worker, { new: true })
-                res.json({ success: true, update })
+                updateWorker = await Worker.findOneAndUpdate({ _id: id }, workerBody, { new: true })
+                res.json({ success: true, updateWorker })
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }
