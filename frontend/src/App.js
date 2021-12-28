@@ -1,13 +1,24 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Sign from './pages/Sign';
 import Services from './pages/Services'
+import { useEffect } from 'react'
 import Service from './pages/Service'
+import { toast } from 'react-toastify';
+import userActions from './redux/actions/usersActions'
+import { connect } from 'react-redux'
+function App({ rdxAuth, rdxLogin }) {
+  useEffect(() => {
+    async function fetchData() {
+      const user = await rdxAuth();
+      user.error && toast(user.error)
+      user.response && rdxLogin({ email: user.response.email, password: user.response.password, google: user.response.google })
+    }
+    localStorage.getItem('token') && fetchData();
+  }, [rdxAuth, rdxLogin])
 
-
-function App() {
   return (
     <BrowserRouter>
       <Navbar />
@@ -21,4 +32,9 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  rdxAuth: userActions.isAuth,
+  rdxLogin: userActions.signInUser
+}
+
+export default connect(null, mapDispatchToProps)(App);
