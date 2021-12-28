@@ -16,13 +16,14 @@ const usersActions =  {
     signInUser: (logUser) => {
         return async(dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/user/signin', {...logUser})
+            console.log(res)
             if(res.data.success){
                 dispatch({type: 'LOG_USER', payload: res.data.response})
                 return res
             } else {
                 console.error(res.data.response)
+                return res
             }
-            return res
         }
     },
     logOut: () => {

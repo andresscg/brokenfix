@@ -61,10 +61,11 @@ const SignIn = (props) => {
   };
 
   const responseGoogle = async (res) => {
+    console.log(res)
     let logInGoogle = {
       email: res.profileObj.email,
       password: res.profileObj.googleId,
-      flagGoogle: true,
+      google: true,
     };
     try {
       let response = await dispatch(usersActions.signInUser(logInGoogle));
@@ -122,11 +123,11 @@ const SignIn = (props) => {
        className="btn solid">
         SIGN IN
       </button>
-      <p className="social-text">Or Sign In With Google</p>
+      <p className="social-text">Or</p>
       <div className="social-media">
         <GoogleLogin
           clientId="489964022885-77e9lbhf9smup5vb53d29f6nr34s32u3.apps.googleusercontent.com"
-          buttonText="Sign Up With Google"
+          buttonText="Sign In With Google"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}

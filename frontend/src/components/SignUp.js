@@ -28,6 +28,7 @@ const SignUp = (props) => {
   const valuesHandler = (e) => {
     const value = e.target.value;
     const data = e.target.name;
+    console.log(value, data)
     setNewUser({ ...newUser, [data]: value });
   };
 
@@ -86,6 +87,7 @@ const SignUp = (props) => {
   };
 
   const responseGoogle = async (res) => {
+    console.log(res)
     let googleUser = {
       name: res.profileObj.givenName,
       lastName: res.profileObj.familyName,
@@ -200,8 +202,8 @@ const SignUp = (props) => {
           type="text"
           placeholder="Commune"
           name="commune"
-          value={newUser.address.commune}
-          onChange={valuesHandler}
+          // value={newUser.address.commune}
+          onChange={(e)=> valuesHandler(e)}
         />
       </div>
       <div className="input-field">
@@ -210,8 +212,8 @@ const SignUp = (props) => {
           type="text"
           placeholder="Street"
           name="street"
-          value={newUser.address.street}
-          onChange={valuesHandler}
+          // value={newUser.address.street}
+          onChange={(e)=> valuesHandler(e)}
         />
       </div>
       <div className="input-field">
@@ -220,8 +222,8 @@ const SignUp = (props) => {
           type="text"
           placeholder="Number"
           name="number"
-          value={newUser.address.number}
-          onChange={valuesHandler}
+          // value={newUser.number}
+          onChange={(e) => valuesHandler(e)}
         />
       </div>
       <div className="sign-btns">
@@ -231,7 +233,6 @@ const SignUp = (props) => {
           SIGN UP
         </button>
         <div className="social-media">
-          <p className="social-text">Or Sign Up With Google</p>
           <GoogleLogin
             clientId="489964022885-77e9lbhf9smup5vb53d29f6nr34s32u3.apps.googleusercontent.com"
             buttonText="Sign Up With Google"
