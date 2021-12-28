@@ -8,6 +8,11 @@ import "../styles/Services.css";
 const Services = (props) => {
   // FALTA EL FECHEO
 
+  useEffect(() => {
+    props.BUSCAR_TODAS_PROFESIONES();
+    // props.BUSCAR_PROFESION(id);
+  }, []);
+
   const profesiones = this.props;
   return (
     <>
@@ -16,26 +21,23 @@ const Services = (props) => {
           <h2>FIND YOUR HOME SERVICE:</h2>
         </div>
         <div className="city-container-card">
-          {profesiones.length === 0 ? (
+          {/* {profesiones.length === 0 ? (
             <Loader />
-          ) : profesiones.length > 0 ? (
-            profesiones.map((element) => {
-              return (
-                <div className="container-card" key={element._id}>
-                  <div key={element._id} className="city-img-container">
-                    <Link to="#">
-                      <img src={element.img} alt={element.name} />
-                    </Link>
-                    <div className="name-container">
-                      <p className="name-city">{element.name}</p>
-                    </div>
+          ) : profesiones.length > 0 ? ( */}
+          {profesiones.map((element) => {
+            return (
+              <div className="container-card" key={element._id}>
+                <div key={element._id} className="city-img-container">
+                  <Link to="/Service">
+                    <img src={element.img} alt={element.name} />
+                  </Link>
+                  <div className="name-container">
+                    <p className="name-city">{element.name}</p>
                   </div>
                 </div>
-              );
-            })
-          ) : (
-            <p>Your search does not exist</p>
-          )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
