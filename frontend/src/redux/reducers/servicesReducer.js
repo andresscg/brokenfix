@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-const servicesReducer = (state = {}, action) => {
-    return state
-}
-=======
 const inicialState = { listaProfesiones: [] };
 
 const servicesReducer = (state = inicialState, action) => {
@@ -21,6 +16,5 @@ const servicesReducer = (state = inicialState, action) => {
       return state;
   }
 };
->>>>>>> d8e9c485ca73e0f1b008b026bd999f155f75737a
 
 export default servicesReducer;

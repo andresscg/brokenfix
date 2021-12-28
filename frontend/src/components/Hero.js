@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Hero.css";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -12,12 +13,12 @@ const Hero = () => {
         <img id="bgheroimg" src="../assets/hero2.png" alt="herobackground"/>
       </div>
       <div className='buttonshero'>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/cleaning.png" /></button>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/Electrician.png" /></button>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/gas.png" /></button>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/plumber.png" /></button>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/carpenter.png" /></button>
-        <button href="/" className='btnhero'><img className='imgbtn' src="../assets/locksmit.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/cleaning.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/Electrician.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/gas.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/plumber.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/carpenter.png" /></button>
+        <button  className='btnhero'><img className='imgbtn' src="../assets/locksmit.png" /></button>
       </div>
     </>
   )

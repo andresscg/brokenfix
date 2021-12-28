@@ -1,12 +1,8 @@
 import './App.css';
-<<<<<<< HEAD
-import React from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-=======
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
->>>>>>> a7b77a2d32bb74a819ef768ecf63f15ca51a07de
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
+import Footer from "./components/Footer"
 import Sign from './pages/Sign';
 import Services from './pages/Services'
 import { useEffect } from 'react'
@@ -14,6 +10,8 @@ import Service from './pages/Service'
 import { toast } from 'react-toastify';
 import userActions from './redux/actions/usersActions'
 import { connect } from 'react-redux'
+import React from 'react';
+
 function App({ rdxAuth, rdxLogin }) {
   useEffect(() => {
     async function fetchData() {
@@ -33,6 +31,7 @@ function App({ rdxAuth, rdxLogin }) {
         <Route path="/services/:id" element={<Service />} />
         <Route path="/sign" element={<Sign />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

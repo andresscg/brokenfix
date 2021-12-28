@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import servicesAction from "../redux/actions/servicesAction";
+import servicesAction from "../redux/actions/servicesActions";
 import Loader from "../components/Loader";
 import "../styles/Services.css";
 

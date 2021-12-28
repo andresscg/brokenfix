@@ -3,8 +3,8 @@
   padding: 0;
   box-sizing: 0;
 }
-
 .footer-contenedor {
+  margin-top: 5rem;
   display: flex;
   padding: 5%;
   background: linear-gradient(
@@ -13,13 +13,13 @@
     rgba(21, 165, 60, 1) 50%
   );
   width: 100%;
-  height: 25vh;
+  height: 6rem;
 }
 
-img {
+.logofooter {
   opacity: 90%;
-  width: 50%;
-  height: 80%;
+  width: 18%;
+  height: 4rem;
   object-fit: contain;
 }
 
@@ -46,7 +46,6 @@ img {
 }
 
 .footer-iconos {
-  padding-bottom: 1%;
   background: rgb(32, 236, 77);
   background: linear-gradient(
     90deg,
@@ -54,6 +53,9 @@ img {
     rgba(21, 165, 60, 1) 50%
   );
   width: 100%;
+  border-top-style: solid;
+  padding-top: 1rem;
+  border-top-color:rgba(37, 180, 75, 0.87) ;
 }
 
 .footer-iconos h6 i {

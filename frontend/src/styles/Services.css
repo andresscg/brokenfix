@@ -1,4 +1,4 @@
-.city-container {
+/* .city-container {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -6,7 +6,7 @@
   background: url(./assetshero/img-7.jpg) center center/cover no-repeat;
   padding-top: 3rem;
   min-height: 83vh;
-}
+} */
 
 .subtitle-container {
   width: 100%;

@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return (
     <div className="nav-container">
       <Link to='/'>
-          <img src="./assets/logo.svg" alt="logo" className="nav-logo" />
+          <img src="./assets/logo.png" alt="logo" className="nav-logo" />
       </Link>
       <div className="nav-menu">
           <Link to="/" className='navbar-links'>
