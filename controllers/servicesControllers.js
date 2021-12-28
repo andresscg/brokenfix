@@ -14,7 +14,7 @@ const servicesControllers = {
                 res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }
         } catch (error) {
-            res.json({ succes: false, error })
+            res.json({ success: false, error })
         }
     },
     getServices: async (req, res) => {
@@ -26,7 +26,7 @@ const servicesControllers = {
 
 
         } catch (error) {
-            res.json({ succes: false, error })
+            res.json({ success: false, error })
         }
     },
     deleteService: async (req, res) => {
@@ -55,7 +55,7 @@ const servicesControllers = {
                 res.json({ success: false, error: 'Unauthorized User, you must be admin' })
             }
         } catch (error) {
-            res.json({ succes: false, error })
+            res.json({ success: false, error })
         }
     },
     updateService: async (req, res) => {
@@ -70,7 +70,7 @@ const servicesControllers = {
                 res.json({ success: false, error: 'Unauthorized User, you must be admin' })
             }
         } catch (error) {
-            res.json({ succes: false, error })
+            res.json({ success: false, error })
         }
     },
 }
