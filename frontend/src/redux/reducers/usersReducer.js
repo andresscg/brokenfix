@@ -5,7 +5,6 @@ const usersReducer = (
         img: null,
         admin: null
     }, action) => {
-    console.log(action)
     if (action.type === 'LOG_USER') {
         return {
             ...state,

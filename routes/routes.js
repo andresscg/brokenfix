@@ -33,7 +33,6 @@ Router.route('/admin/user/:id')
 
 // admin handler services
 Router.route('/admin/services')
-    .get(passport.authenticate('jwt', { session: false }), getServices)
     .post(passport.authenticate('jwt', { session: false }), addService)
 Router.route('/admin/service/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteService)

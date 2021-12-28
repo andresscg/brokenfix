@@ -16,10 +16,10 @@ const SignUp = (props) => {
     password: "",
     phoneNumber: "",
     address: {
-       street: "",
-       number: "",
-       commune: "",
-     }
+      street: "",
+      number: "",
+      commune: "",
+    }
   });
   useEffect(() => {
     window.scroll(0, 0);
@@ -28,7 +28,6 @@ const SignUp = (props) => {
   const valuesHandler = (e) => {
     const value = e.target.value;
     const data = e.target.name;
-    console.log(value, data)
     setNewUser({ ...newUser, [data]: value });
   };
 
@@ -43,7 +42,7 @@ const SignUp = (props) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+      });
     } else {
       try {
         let response = await dispatch(usersActions.signUpUser(newUser));
@@ -56,7 +55,7 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            })
+          })
         } else if (response.data.errors) {
           let errors = response.data.errors;
           errors.map((err) => toast.error(err.message, {
@@ -67,7 +66,7 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            }));
+          }));
         } else {
           toast.error(response.data.error, {
             position: "bottom-right",
@@ -77,7 +76,7 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
+          });
         }
       } catch (err) {
         console.error(err);
@@ -87,7 +86,6 @@ const SignUp = (props) => {
   };
 
   const responseGoogle = async (res) => {
-    console.log(res)
     let googleUser = {
       name: res.profileObj.givenName,
       lastName: res.profileObj.familyName,
@@ -96,10 +94,10 @@ const SignUp = (props) => {
       img: res.profileObj.imageUrl,
       phoneNumber: 111111,
       address: {
-         street: "default",
-         number: 111,
-         commune: "default",
-       },
+        street: "default",
+        number: 111,
+        commune: "default",
+      },
       google: true,
     };
     try {
@@ -113,8 +111,8 @@ const SignUp = (props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          })
-      }else{
+        })
+      } else {
         toast.warn(response.data.error, {
           position: "bottom-right",
           autoClose: 5000,
@@ -123,7 +121,7 @@ const SignUp = (props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          })
+        })
       }
     } catch (err) {
       console.error(err);
@@ -203,7 +201,7 @@ const SignUp = (props) => {
           placeholder="Commune"
           name="commune"
           // value={newUser.address.commune}
-          onChange={(e)=> valuesHandler(e)}
+          onChange={(e) => valuesHandler(e)}
         />
       </div>
       <div className="input-field">
@@ -213,7 +211,7 @@ const SignUp = (props) => {
           placeholder="Street"
           name="street"
           // value={newUser.address.street}
-          onChange={(e)=> valuesHandler(e)}
+          onChange={(e) => valuesHandler(e)}
         />
       </div>
       <div className="input-field">
@@ -227,8 +225,8 @@ const SignUp = (props) => {
         />
       </div>
       <div className="sign-btns">
-        <button className="btn sign-up-btn" 
-        onClick={formHandler}
+        <button className="btn sign-up-btn"
+          onClick={formHandler}
         >
           SIGN UP
         </button>

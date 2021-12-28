@@ -7,8 +7,10 @@ import Services from './pages/Services'
 import { useEffect } from 'react'
 import Service from './pages/Service'
 import { toast } from 'react-toastify';
-import userActions from './redux/actions/usersActions'
+import usersActions from './redux/actions/usersActions'
 import { connect } from 'react-redux'
+import AdminPanel from './components/AdminPanel';
+
 function App({ rdxAuth, rdxLogin }) {
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +27,7 @@ function App({ rdxAuth, rdxLogin }) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/services/:id" element={<Service />} />
         <Route path="/sign" element={<Sign />} />
       </Routes>
@@ -33,8 +36,8 @@ function App({ rdxAuth, rdxLogin }) {
 }
 
 const mapDispatchToProps = {
-  rdxAuth: userActions.isAuth,
-  rdxLogin: userActions.signInUser
+  rdxAuth: usersActions.isAuth,
+  rdxLogin: usersActions.signInUser
 }
 
 export default connect(null, mapDispatchToProps)(App);

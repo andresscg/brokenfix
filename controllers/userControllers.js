@@ -20,6 +20,7 @@ const userControllers = {
                     lastName,
                     name,
                     email,
+                    img,
                     google
                 })
                 await newUser.save()
@@ -42,13 +43,14 @@ const userControllers = {
             } else {
                 if (userExists.google && !google) return res.json({ success: false, error: "email y/o contraseña incorrectos" })
                 let samePass = bcryptjs.compareSync(password, userExists.password)
+                console.log(samePass);
                 if (samePass) {
                     const token = jwt.sign({ ...userExists }, process.env.SECRETKEY)
                     const { name, img, _id, admin } = userExists
                     res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
                 } else {
-
                     console.log('error');
+                    console.log(password === userExists.password);
                     res.json({ success: false, error: "email y/o contraseña incorrectos" })
                 }
             }
