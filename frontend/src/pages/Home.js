@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <body>
+      {/* <body>
         <main className="home-main">
           <div className="d-flex justify-content-center p-5">
             <h1>Home Services Broke&Fix</h1>
@@ -20,7 +20,7 @@ const Home = () => {
             <p>Comments Comments Comments Comments</p>
           </div>
         </main>
-      </body>
+      </body> */}
       <Footer />
     </>
   );
