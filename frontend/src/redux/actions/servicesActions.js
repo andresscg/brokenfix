@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const servicesAtions = {
+const servicesActions = {
   getServices: () => {
     return async (dispatch, getState) => {
       let response = await axios.get('http://localhost:4000/api/services')
@@ -17,6 +17,4 @@ const servicesAtions = {
   }
 }
 
-export default servicesAtions
-
-export default servicesAtions;
+export default servicesActions

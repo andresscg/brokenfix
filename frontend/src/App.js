@@ -6,20 +6,11 @@ import Home from './pages/Home'
 import Footer from "./components/Footer"
 import Sign from './pages/Sign';
 import Services from './pages/Services'
-import { useEffect } from 'react'
 import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
-
-function App({ rdxAuth, rdxLogin }) {
-  useEffect(() => {
-    async function fetchData() {
-      const user = await rdxAuth();
-      user.error && toast(user.error)
-      user.response && rdxLogin({ email: user.response.email, password: user.response.password, google: user.response.google })
-    }
-    localStorage.getItem('token') && fetchData();
-  }, [rdxAuth, rdxLogin])
+import {toast} from "react-toastify"
+import {ToastContainer} from 'react-toastify'
 
 const App = (props) => {
 
@@ -41,9 +32,21 @@ const App = (props) => {
         <Route path="/sign" element={<Sign /> } />
       </Routes>
       <Footer/>
+      <ToastContainer
+        position="bottom-rigth"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        limit={5}
+      />
     </BrowserRouter>
-  );
-}
+   );
+  }
 
 const mapStateToProps = (state) => {
   return{
@@ -53,5 +56,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   authUser: usersActions.authUser
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)
