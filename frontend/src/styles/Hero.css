@@ -51,7 +51,7 @@ justify-content: flex-end;
 }
 @media(max-width: 1030px){
     .heroAboutus{
-        font-size: 40px;
+        font-size: 35px;
     }
     #bgheroimg{
         height: 70vh;
@@ -59,7 +59,7 @@ justify-content: flex-end;
         margin-top: .1rem;
     }
     .heroAboutus2{
-            font-size: 18px;
+            font-size: 16px;
     }
     .buttonshero{
         margin-top: -2.5rem;
@@ -71,6 +71,14 @@ justify-content: flex-end;
         margin-left: 1.5rem;
     }
     
+}
+@media (max-width:980px){
+    .heroAboutus{
+        font-size: 28px;
+    }
+    .heroAboutus2{
+        font-size: 14px;
+    }
 }
 @media  (max-width: 799px){
 .heroAboutus{
@@ -102,16 +110,16 @@ justify-content: flex-end;
     #herotext{
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
-    }
+   }
     .heroAboutus{
-        font-size: 20px;
-        margin-left: 1rem;
+        font-size: 16px;
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
     .heroAboutus2{
-        font-size: 15px;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        font-size: 13px;
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
     #bgheroimg{
         width: 85%;

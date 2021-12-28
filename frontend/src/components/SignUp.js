@@ -15,11 +15,9 @@ const SignUp = (props) => {
     img: "",
     password: "",
     phoneNumber: "",
-    address: {
-       street: "",
-       number: "",
-       commune: "",
-     }
+    street: "",
+    number: "",
+    commune: "",
   });
   useEffect(() => {
     window.scroll(0, 0);
@@ -28,7 +26,6 @@ const SignUp = (props) => {
   const valuesHandler = (e) => {
     const value = e.target.value;
     const data = e.target.name;
-    console.log(value, data)
     setNewUser({ ...newUser, [data]: value });
   };
 
@@ -87,7 +84,6 @@ const SignUp = (props) => {
   };
 
   const responseGoogle = async (res) => {
-    console.log(res)
     let googleUser = {
       name: res.profileObj.givenName,
       lastName: res.profileObj.familyName,
@@ -95,11 +91,9 @@ const SignUp = (props) => {
       password: res.profileObj.googleId,
       img: res.profileObj.imageUrl,
       phoneNumber: 111111,
-      address: {
-         street: "default",
-         number: 111,
-         commune: "default",
-       },
+      street: "default",
+      number: 111,
+      commune: "default",
       google: true,
     };
     try {
@@ -202,8 +196,8 @@ const SignUp = (props) => {
           type="text"
           placeholder="Commune"
           name="commune"
-          // value={newUser.address.commune}
-          onChange={(e)=> valuesHandler(e)}
+          value={newUser.commune}
+          onChange={valuesHandler}
         />
       </div>
       <div className="input-field">
@@ -212,18 +206,18 @@ const SignUp = (props) => {
           type="text"
           placeholder="Street"
           name="street"
-          // value={newUser.address.street}
-          onChange={(e)=> valuesHandler(e)}
+          value={newUser.street}
+          onChange={valuesHandler}
         />
       </div>
       <div className="input-field">
         <i className="fas fa-house-user"></i>
         <input
-          type="text"
+          type="number"
           placeholder="Number"
           name="number"
-          // value={newUser.number}
-          onChange={(e) => valuesHandler(e)}
+          value={newUser.number}
+          onChange={valuesHandler}
         />
       </div>
       <div className="sign-btns">

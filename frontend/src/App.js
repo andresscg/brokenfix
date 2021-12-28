@@ -1,5 +1,6 @@
+import React, { useEffect } from 'react'
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Footer from "./components/Footer"
@@ -7,10 +8,8 @@ import Sign from './pages/Sign';
 import Services from './pages/Services'
 import { useEffect } from 'react'
 import Service from './pages/Service'
-import { toast } from 'react-toastify';
-import userActions from './redux/actions/usersActions'
-import { connect } from 'react-redux'
-import React from 'react';
+import { connect } from 'react-redux';
+import usersActions from './redux/actions/usersActions';
 
 function App({ rdxAuth, rdxLogin }) {
   useEffect(() => {
@@ -22,6 +21,16 @@ function App({ rdxAuth, rdxLogin }) {
     localStorage.getItem('token') && fetchData();
   }, [rdxAuth, rdxLogin])
 
+const App = (props) => {
+
+  const { authUser } = props
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+        authUser(localStorage.getItem('token'))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -29,16 +38,22 @@ function App({ rdxAuth, rdxLogin }) {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<Service />} />
-        <Route path="/sign" element={<Sign />} />
+        {!props.token && <Route path="/sign" element={<Sign />} />}
+
+        <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
   );
 }
 
+const mapStateToProps = (state) => {
+  return{
+      token: state.users.token
+  }
+}
 const mapDispatchToProps = {
-  rdxAuth: userActions.isAuth,
-  rdxLogin: userActions.signInUser
+  authUser: usersActions.authUser
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

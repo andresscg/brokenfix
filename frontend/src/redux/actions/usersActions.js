@@ -47,6 +47,23 @@ const usersActions = {
             dispatch({ type: "LOG_OUT" })
         }
     },
+    authUser: (token) => {
+        return async (dispatch, getState) => {
+            try{
+                const response = await axios.get('http://localhost:4000/api/user/auth', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        }
+                })
+                const authUser = response.data.response
+                authUser.token = token
+                dispatch({type:"LOG_USER", payload: authUser})
+            }catch(error) {
+                console.error(error)
+                return  dispatch({type:'LOG_OUT' })
+            }
+        }
+    }
 }
 
 export default usersActions
