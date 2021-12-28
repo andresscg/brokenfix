@@ -25,16 +25,12 @@ function App({ rdxAuth, rdxLogin }) {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/> } />
-        <Route path="/services/:id" element={<Service/> } />
+        <Route path="/" element={<Home />} />
+        <Route path="/services/:id" element={<Service />} />
         <Route path="/services" element={<Services />} />
-<<<<<<< HEAD
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/services/:id" element={<Service />} />
         <Route path="/sign" element={<Sign />} />
-=======
-        <Route path="/sign" element={<Sign /> } />
->>>>>>> 4f7d38cd1f907d802423bbd65b9dbfff8e2df61e
       </Routes>
     </BrowserRouter>
   );

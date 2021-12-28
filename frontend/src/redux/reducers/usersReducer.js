@@ -3,7 +3,8 @@ const usersReducer = (
         user: null,
         token: null,
         img: null,
-        admin: null
+        admin: null,
+        users: []
     }, action) => {
     if (action.type === 'LOG_USER') {
         return {
@@ -23,9 +24,17 @@ const usersReducer = (
             img: null,
             admin: null
         }
+    } else if (action.type === 'GET_USERS') {
+        return {
+            ...state,
+            users: action.payload,
+        }
+
     } else {
+
         return state
     }
 }
+
 
 export default usersReducer;

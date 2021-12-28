@@ -5,7 +5,7 @@ const initialState = {
 
 const workersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'getWorkers':
+        case 'GET_WORKERS':
             return {
                 ...state,
                 workers: action.payload,
