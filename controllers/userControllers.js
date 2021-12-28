@@ -37,7 +37,6 @@ const userControllers = {
         console.log(req.body)
         try {
             const userExists = await User.findOne({ email })
-            // console.log(userExists);
             if (!email || !password) return res.json({ success: false, error: "All fields should be filled" })
             if (!userExists) {
                 res.json({ success: false, error: "email y/o contraseña incorrectos" })
@@ -49,12 +48,13 @@ const userControllers = {
                     const { name, img, _id, admin } = userExists
                     res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
                 } else {
+
+                    console.log('error');
                     res.json({ success: false, error: "email y/o contraseña incorrectos" })
                 }
             }
 
         } catch (error) {
-            console.log(error);
             res.json({ success: false, response: null, error: error })
         }
     },

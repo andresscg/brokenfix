@@ -1,22 +1,28 @@
 const usersReducer = (
     state = {
         user: null,
-        token: null
-}, action) => {
+        token: null,
+        img: null,
+        admin: null
+    }, action) => {
     console.log(action)
-    if(action.type === 'LOG_USER'){
-        localStorage.setItem('token', action.payload.token);
+    if (action.type === 'LOG_USER') {
         return {
             ...state,
-            user : action.payload,
-            token: action.payload.token
+            user: action.payload.user,
+            token: action.payload.token,
+            img: action.payload.img,
+            admin: action.payload.admin
         }
 
-    } else if(action.type === 'LOG_OUT'){
+    } else if (action.type === 'LOG_OUT') {
         localStorage.clear()
         return {
-            user : null,
-            token: null
+            ...state,
+            user: null,
+            token: null,
+            img: null,
+            admin: null
         }
     } else {
         return state

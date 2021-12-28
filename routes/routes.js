@@ -46,7 +46,10 @@ Router.route('/admin/workers')
 Router.route('/admin/worker/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteWorker)
     .put(passport.authenticate('jwt', { session: false }), modifyWorker)
+<<<<<<< HEAD
 
 Router.route('/authUser').get(passport.authenticate('jwt', {session: false}), authUser)    
+=======
+>>>>>>> a7b77a2d32bb74a819ef768ecf63f15ca51a07de
 
 module.exports = Router
