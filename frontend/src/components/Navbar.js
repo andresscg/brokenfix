@@ -1,8 +1,10 @@
 import React from 'react'
 import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
+  console.log(props)
   return (
     <div className="nav-container">
       <Link to='/'>
@@ -31,4 +33,12 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+    return {
+        token: state.users.token,
+        user: state.users.user
+    }
+}
+
+
+export default connect(mapStateToProps)(Navbar)

@@ -1,4 +1,3 @@
-require("../config/database")
 const Router = require('express').Router();
 const passport = require('../config/passport');
 const validator = require('../config/validator');
@@ -6,17 +5,19 @@ const servicesControllers = require('../controllers/servicesControllers')
 const workerControllers = require('../controllers/workerControllers')
 const userControllers = require('../controllers/userControllers')
 
-const { addService, getServices } = servicesControllers
-const { addWorker } = workerControllers
-const { addUser, signin, authUser } = userControllers
+const { addService, getServices, deleteService, updateService } = servicesControllers
+const { addWorker, getWorkers, deleteWorker, modifyWorker } = workerControllers
+const { addUser, getUsers, signin, authUser, deleteUser, updateUser } = userControllers
 
+
+// service handler
 Router.route('/services')
-    .post(addService)
     .get(getServices)
-    
+// worker handler
 Router.route('/workers')
-    .post(addWorker)
-Router.route('/users/signup')
+    .get(getWorkers)
+// user handler
+Router.route('/user/signup')
     .post(validator, addUser)
 
 Router.route('/users/signin')
@@ -33,17 +34,18 @@ Router.route('/admin/user/:id')
 
 // admin handler services
 Router.route('/admin/services')
-    .post(passport.authenticate('jwt', { session: false }), addService)
     .get(passport.authenticate('jwt', { session: false }), getServices)
-Router.route('/admin/services/:id')
+    .post(passport.authenticate('jwt', { session: false }), addService)
+Router.route('/admin/service/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteService)
+    .put(passport.authenticate('jwt', { session: false }), updateService)
 
 // admin handler workers
 Router.route('/admin/workers')
     .post(passport.authenticate('jwt', { session: false }), addWorker)
-    .get(passport.authenticate('jwt', { session: false }), getWorkers)
-Router.route('/admin/workers/:id')
+Router.route('/admin/worker/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteWorker)
+    .put(passport.authenticate('jwt', { session: false }), modifyWorker)
 
 Router.route('/authUser').get(passport.authenticate('jwt', {session: false}), authUser)    
 

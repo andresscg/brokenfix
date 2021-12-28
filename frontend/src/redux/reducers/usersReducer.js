@@ -3,6 +3,7 @@ const usersReducer = (
         user: null,
         token: null
 }, action) => {
+    console.log(action)
     if(action.type === 'LOG_USER'){
         localStorage.setItem('token', action.payload.token);
         return {
