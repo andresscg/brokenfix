@@ -9,8 +9,8 @@ import Services from './pages/Services'
 import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
-import {toast} from "react-toastify"
 import {ToastContainer} from 'react-toastify'
+
 
 const App = (props) => {
 
@@ -27,9 +27,12 @@ const App = (props) => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/> } />
-        <Route path="/services/:id" element={<Service/> } />
         <Route path="/services" element={<Services />} />
-        <Route path="/sign" element={<Sign /> } />
+        <Route path="/services/:id" element={<Service/> } />
+        {!props.token && <Route path="/sign" element={<Sign />} />}
+
+        <Route path="*" element={<Navigate to="/"/>} />
+        
       </Routes>
       <Footer/>
       <ToastContainer

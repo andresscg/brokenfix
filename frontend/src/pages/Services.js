@@ -5,7 +5,7 @@ import servicesActions from '../redux/actions/servicesActions'
 import '../App.css'
 import {Link} from 'react-router-dom'
 
-const Service = () => {
+const Services = () => {
     const services = useSelector((state) => state.services.allServices)
     const dispatch = useDispatch()
 
@@ -32,4 +32,4 @@ const Service = () => {
     )
 }
 
-export default Service
+export default Services
