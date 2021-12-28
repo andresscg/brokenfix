@@ -22,8 +22,11 @@ const Homebody = () =>{
                         </div>
                     </blockquote>
          </div>
-         <div>
-             
+         <div className="howto">
+                <h3 className="howtotitle">How to use our page</h3>
+                <div>
+                    
+                </div>
          </div>
         </>
     )
