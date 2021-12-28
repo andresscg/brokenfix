@@ -6,14 +6,20 @@ const servicesControllers = require('../controllers/servicesControllers')
 const workerControllers = require('../controllers/workerControllers')
 const userControllers = require('../controllers/userControllers')
 
-const { addService, getServices, deleteService } = servicesControllers
-const { addWorker, getWorkers, deleteWorker } = workerControllers
-const { addUser, getUsers, updateUser, signin, authUser, deleteUser } = userControllers
+const { addService, getServices } = servicesControllers
+const { addWorker } = workerControllers
+const { addUser, signin, authUser } = userControllers
 
-// user handler
-Router.route('/user/signup')
+Router.route('/services')
+    .post(addService)
+    .get(getServices)
+    
+Router.route('/workers')
+    .post(addWorker)
+Router.route('/users/signup')
     .post(validator, addUser)
-Router.route('/user/signin')
+
+Router.route('/users/signin')
     .post(signin)
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
@@ -38,5 +44,7 @@ Router.route('/admin/workers')
     .get(passport.authenticate('jwt', { session: false }), getWorkers)
 Router.route('/admin/workers/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteWorker)
+
+Router.route('/authUser').get(passport.authenticate('jwt', {session: false}), authUser)    
 
 module.exports = Router
