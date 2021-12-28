@@ -1,16 +1,20 @@
-const inicialState = { listaProfesiones: [] };
-
-const servicesReducer = (state = inicialState, action) => {
+const servicesReducer = (
+  state = { allServices: [], newService: {} },
+  action
+) => {
   switch (action.type) {
-    case "BUSCAR_TODAS_PROFESIONES":
+    case "GET_SERVICES":
       return {
         ...state,
-        listaProfesiones: action.payload,
+        allServices: action.payload,
       };
-    case "BUSCAR_PROFESION":
+    case "GET_ONE_SERVICE":
+      let oneService = state.allServices.find(
+        (service) => service._id === action.payload
+      );
       return {
         ...state,
-        profesion: action.payload,
+        newService: oneService,
       };
     default:
       return state;

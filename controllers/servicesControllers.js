@@ -6,26 +6,26 @@ const servicesControllers = {
     let service;
     try {
       service = await Service(servicesBody).save();
-      res.json({ succes: true, service });
+      res.json({ success: true, service });
     } catch (error) {
-      res.json({ succes: false, error });
+      res.json({ success: false, error });
     }
   },
   getServices: async (req, res) => {
     try {
       const services = await Service.find();
-      res.json({ succes: true, services });
+      res.json({ success: true, services });
     } catch (error) {
-      res.json({ succes: false, error });
+      res.json({ success: false, error });
     }
   },
   getServiceById: async (req, res) => {
     const id = req.params.id;
     try {
       const service = await Service.findOne({ _id: id });
-      res.json({ succes: true, service });
+      res.json({ success: true, service });
     } catch (error) {
-      res.json({ succes: false, error });
+      res.json({ success: false, error });
     }
   },
   updateServiceById: async (req, res) => {
@@ -36,18 +36,18 @@ const servicesControllers = {
       updatedService = await Service.getOneAndUpdate({ _id: id }, bodyService, {
         new: true,
       });
-      res.json({ succes: true, updatedService });
+      res.json({ success: true, updatedService });
     } catch (error) {
-      res.json({ succes: false, error });
+      res.json({ success: false, error });
     }
   },
   deleteService: async (req, res) => {
     const id = req.params.id;
     try {
       await Service.getOneAndDelete({ _id: id });
-      res.json({ succes: true, updatedService });
+      res.json({ success: true, updatedService });
     } catch (error) {
-      res.json({ succes: false, error });
+      res.json({ success: false, error });
     }
   },
 };
