@@ -8,6 +8,7 @@ import Services from './pages/Services'
 import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
+import {ToastContainer} from 'react-toastify'
 
 
 const App = (props) => {
@@ -31,6 +32,18 @@ const App = (props) => {
 
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
+      <ToastContainer
+        position="bottom-rigth"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        limit={5}
+      />
     </BrowserRouter>
   );
 }
