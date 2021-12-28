@@ -35,12 +35,10 @@ const App = (props) => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/> } />
+        <Route path="/services/:id" element={<Service/> } />
         <Route path="/services" element={<Services />} />
-        <Route path="/services/:id" element={<Service />} />
-        {!props.token && <Route path="/sign" element={<Sign />} />}
-
-        <Route path="*" element={<Navigate to="/"/>} />
+        <Route path="/sign" element={<Sign /> } />
       </Routes>
       <Footer/>
     </BrowserRouter>
