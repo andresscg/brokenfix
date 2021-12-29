@@ -8,7 +8,7 @@ const userControllers = {
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
-                res.json({ success: false, error: "El email ya esta en uso", response: null })
+                res.json({ success: false, error: "Email already in use", response: null })
             } else {
                 const hashPass = bcryptjs.hashSync(password, 10)
                 const newUser = new User({
@@ -31,7 +31,6 @@ const userControllers = {
                 res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
             }
         } catch (error) {
-            console.log(error);
             res.json({ success: false, response: null, error: error })
         }
     },

@@ -96,10 +96,10 @@ form.sign-in-form {
 .name-input {
   display: flex;
   gap: 10px;
-}
-.name-input {
   max-width: 320px;
+
 }
+
 @media (min-width: 1000px) {
   .name-input {
     max-width: 450px;
@@ -107,7 +107,7 @@ form.sign-in-form {
   
 
 }
-.name-input .input-field {
+.name-input.flex-row.input-field {
   max-width: 50%;
 }
 
@@ -123,12 +123,14 @@ form.sign-in-form {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  z-index: 20;
 }
 
 .sign-btns {
   display: flex;
   align-items: center;
   gap: 20px;
+  z-index: 20;
 }
 
 
@@ -374,7 +376,7 @@ form.sign-in-form {
   @media (max-width: 870px) {
     .container-sign.sign-up-mode .right-panel .image,
     .container-sign.sign-up-mode .right-panel .content {
-      transform: translateY(65px);
+      transform: translateY(45px);
     }
     .container-sign.sign-up-mode:before {
       bottom: 15%;
@@ -406,6 +408,7 @@ form.sign-in-form {
   }
   .container-sign {
     padding: 1.5rem;
+    /* height: 140vh; */
   }
 
   .container-sign:before {
@@ -414,12 +417,35 @@ form.sign-in-form {
   }
 
   .container-sign.sign-up-mode:before {
-    bottom: 15%;
+    bottom: 25%;
     left: 50%;
   }
 }
-
-
+@media (max-height: 1024px) {
+  .container-sign {
+    height: 125vh;
+  }
+}
+@media (max-height: 869px) {
+  .container-sign {
+    height: 140vh;
+  }
+}
+@media (max-height: 770px) {
+  .container-sign {
+    height: 170vh;
+  }
+}
+@media (max-height: 670px) {
+  .container-sign {
+    height: 190vh;
+  }
+}
+@media (max-height: 570px) {
+  .container-sign {
+    height: 200vh;
+  }
+}
 /* AUTOCOMPLET STYLES */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -431,4 +457,21 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.div-input-errors{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80%;
+}
+
+.div-input-errors p {
+  color: #ff3131;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
 }

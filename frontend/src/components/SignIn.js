@@ -11,7 +11,6 @@ const SignIn = (props) => {
   const signHandler = (e) => {
     const value = e.target.value;
     const data = e.target.name;
-
     setSignUser({ ...signUser, [data]: value });
   };
 
@@ -118,9 +117,9 @@ const SignIn = (props) => {
           onChange={signHandler}
         />
       </div>
-      <button
-        onClick={formHandler}
-        className="btn solid">
+      <button 
+      onClick={formHandler}
+       className="btn solid">
         SIGN IN
       </button>
       <p className="social-text">Or</p>
