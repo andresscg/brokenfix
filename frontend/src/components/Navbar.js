@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import usersActions from "../redux/actions/usersActions";
 
-const Navbar = (props) => {
 
+const Navbar = (props) => {
+  const [click, setClick] = useState(false);
+  const openNavBar = () => setClick(!click);
   console.log(props)
   // const {img} = props.img
   const logOutHandler = (e) => {
       e.preventDefault()
       props.logOut()
   }
+  // const openNavBar = (e) =>{
+  //   var menu      = document.querySelector('fa fa-bars');
+  //   var drawer    = document.querySelector("nav-menu");
+  //   menu.addEventListener('click', function (e) {
+  //     /*Abrir menu*/
+  //     drawer.classList.toggle('show');
+  // });
+  // }
   // const userImg = img
   // console.log(userImg)
   return (
@@ -19,7 +29,7 @@ const Navbar = (props) => {
       <Link to='/'>
           <img src="./assets/logo.png" alt="logo" className="nav-logo" />
       </Link>
-      <div className="nav-menu">
+      <div className={click ? "nav-menu show" : "nav-menu"}>
           <Link to="/" className='navbar-links'>
             Home
           </Link>
@@ -29,7 +39,6 @@ const Navbar = (props) => {
           <Link to='/contact' className='navbar-links'>
             Contact Us
           </Link>
-      </div>
       { !props.user ? 
         <div className='cont-log-sign'>
           <Link to="/sign" className='navbar-links'>
@@ -42,12 +51,16 @@ const Navbar = (props) => {
             padding: '.1rem', 
             backgroundColor: 'gray', 
             borderRadius: '50%'}
-            }>
+          }>
               <img src={props.img} className='img-user' alt="Profile user icon"/>
           </div>
           <button onClick={(e) => logOutHandler(e)}>Log Out</button>
         </div>
       }
+      </div>
+      <div className='btn-menu' onClick={openNavBar} >
+     <i className={click ? "fas fa-times" : "fas fa-bars"}  />
+      </div>
     </div>
   )
 }
