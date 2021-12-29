@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Sign from './pages/Sign';
 import Services from './pages/Services'
-import { useEffect } from 'react'
 import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
@@ -28,7 +27,7 @@ const App = (props) => {
         <Route path="/" element={<Home/> } />
         <Route path="/services/:id" element={<Service/> } />
         <Route path="/services" element={<Services />} />
-        <Route path="/admin-panel" element={<AdminPanel />} />
+        {/* <Route path="/admin-panel" element={<AdminPanel />} /> */}
         <Route path="/services/:id" element={<Service />} />
         {!props.token && <Route path="/sign" element={<Sign />} />}
 
