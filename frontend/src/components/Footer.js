@@ -9,24 +9,8 @@ const Footer = () => {
         <img className="logofooter" src="../assets/logo.png" />
         <div className="footer-menu">
           <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="container-fluid">
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className="collapse navbar-collapse fs-5"
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
+            <div className="container">
+              <div className="linksnav">
                     <Link
                       className="nav-link active"
                       aria-current="page"
@@ -34,34 +18,14 @@ const Footer = () => {
                     >
                       Home
                     </Link>
-                  </li>
-                  <li className="nav-item">
                     <Link className="nav-link" to="/services">
                       Services
                     </Link>
-                  </li>
-                  <li className="nav-item">
                     <Link className="nav-link" to="/contact">
                       Contact
                     </Link>
-                  </li>
-                </ul>
-                <form className="footer-input d-flex">
-                  <input
-                    className="form-control me-4 border-0 border-bottom"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                </form>
-                <button
-                  className="footer-search-button btn btn-outline-light text-light border-0 border-bottom ms-4"
-                  type="submit"
-                >
-                  Ok
-                </button>
-              </div>
-            </div>
+                    </div>
+                    </div>
           </nav>
         </div>
       </div>

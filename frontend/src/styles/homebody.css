@@ -5,7 +5,7 @@
     margin-top: 2rem;
 }
 .hbh2{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 45px;
 }
@@ -42,14 +42,81 @@
     margin-top: 1rem;
     margin-left: 16rem;
 }
-@media (max-width: 1502px) {
+
+
+@media (max-width: 1440px){
+    .placeforcomments{
+        margin-left: 58.2rem;
+    }
+    .blockquote-footer{
+        margin-left: 10rem;
+    }
    
 }
-@media (max-width:1336px) {
+@media (max-width: 1030px) {
+    .bhimg{
+        width: 80%;
+    }
+    .placeforcomments{
+        margin-left: 39.8rem;
+    }
+    .blockquote{
+        font-size: 14px;
+    }
+    .blockquote-footer{
+        margin-left: 10rem;
+    }
     
 }
-@media (max-width:980px) {
-   
+
+@media (max-width:770px) {
+    .placeforcomments{
+        margin-left: 29.8rem;
+        height: 8rem;
+    }
+    .social{
+        width: 60px;
+        height: 60px;
+    }
+    .blockquote-footer{
+        margin-left: 6rem;
+    }
+    .blockquote{
+        font-size: 9px;
+    }
+    .bhimg{
+        margin-top: 1rem;
+    }
+    .hbh2{
+        font-size: 30px;
+    }
+    
+}
+@media (max-width:430px) {
+    .placeforcomments{
+        margin-left: 17.9rem;
+        height: 8rem;
+        margin-top: -3rem;
+    }
+    .social{
+        width: 40px;
+        height: 40px;
+    }
+    .blockquote-footer{
+        margin-left: 2rem;
+    }
+    .blockquote{
+        font-size: 8px;
+    }
+    .bhimg{
+        margin-top: 1rem;
+        width: 90%;
+        
+    }
+    .hbh2{
+        font-size: 30px;
+    }
+    
 }
 @media (max-width:815px){
    
