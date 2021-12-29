@@ -57,7 +57,7 @@ const usersActions = {
                     headers: { 'Authorization': 'Bearer ' + token }
                 })
                 dispatch({ type: 'GET_USERS', payload: res.data.users })
-
+                return res.data.users
             } catch (error) {
                 return { msg: 'Unauthorized' }
             }
@@ -73,7 +73,7 @@ const usersActions = {
                 })
 
                 dispatch({ type: 'GET_USERS', payload: res.data.users })
-
+                return res.data.deleted
             } catch (error) {
                 return { msg: 'You must be login' }
             }

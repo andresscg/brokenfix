@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
 
 const AdminPanel = (props) => {
-    const [users, setUsers] = useState()
     useEffect(() => {
-        const res = props.getUsers()
-
-    }, [users])
+        props.getUsers()
+    }, [])
 
     return (
         <div >

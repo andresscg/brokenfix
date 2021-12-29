@@ -98,8 +98,8 @@ const userControllers = {
                 const id = req.params.id
                 const user = await User.findOne({ _id: id })
                 if (user.range !== 'A') {
-                    await User.findOneAndDelete({ _id: id })
-                    res.json({ success: true, msg: 'User was deleted successfully ' })
+                    const userDeleted = await User.findOneAndDelete({ _id: id })
+                    res.json({ success: true, msg: 'User was deleted successfully ', deleted: userDeleted })
 
                 } else {
                     res.json({ success: false })
