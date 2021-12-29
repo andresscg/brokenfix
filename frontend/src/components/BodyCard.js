@@ -19,7 +19,7 @@ const BodyCard = () => {
           </div>
         </div>
         <div className="e-card">
-          <div className="e-card-image2">
+          <div className="e-card-2">
             <div className="e-card-title">House Cleaning</div>
           </div>
           <div className="e-card-content">

@@ -27,8 +27,8 @@ const Navbar = (props) => {
         <Link to="/services" className='navbar-links' onClick={closeMenu}>
           Services
         </Link>
-        <Link to='/contact' className='navbar-links' onClick={closeMenu}>
-          ContactUs
+        <Link to='/howtouse' className='navbar-links' onClick={closeMenu}>
+          How to use
         </Link>
         {!props.user ?
           <div className='cont-log-sign'>

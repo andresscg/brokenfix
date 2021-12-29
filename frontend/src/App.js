@@ -10,7 +10,7 @@ import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
 import {ToastContainer} from 'react-toastify'
-
+import Howto from './pages/HowToUse';
 
 const App = (props) => {
 
@@ -32,7 +32,7 @@ const App = (props) => {
         {!props.token && <Route path="/sign" element={<Sign />} />}
 
         <Route path="*" element={<Navigate to="/"/>} />
-        
+        <Route path="/howtouse" element={<Howto/>}/>
       </Routes>
       <Footer/>
       <ToastContainer

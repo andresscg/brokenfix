@@ -21,8 +21,8 @@ const Footer = () => {
                     <Link className="nav-link" to="/services">
                       Services
                     </Link>
-                    <Link className="nav-link" to="/contact">
-                      Contact
+                    <Link className="nav-link" to="/howtouse">
+                      How to use
                     </Link>
                     </div>
                     </div>
