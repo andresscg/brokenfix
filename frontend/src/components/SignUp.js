@@ -21,6 +21,7 @@ const SignUp = (props) => {
     number: "",
     commune: "",
   });
+  
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -58,12 +59,37 @@ const SignUp = (props) => {
             })
         } else if (!response.data.success) {
           let errors = response.data.validate;
-          setErrorInputs({})
-            errors.map(error => setErrorInputs(messageError => {
-              return {
-                ...messageError,
-                [error.path]: error.message
+          if(errors !== undefined) {
+              setErrorInputs({})
+                errors.map(error => setErrorInputs(messageError => {
+                  return {
+                    ...messageError,
+                    [error.path]: error.message
+                  }
+                }))
+              errors.map((err) => toast.error(err.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                }));
+              } else {
+                const errorEmail = response.data.error
+                setErrorInputs({email: errorEmail})
+                toast.error(errorEmail, {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  })
               }
+<<<<<<< HEAD
             }))
           errors.map((err) => toast.error(err.message, {
             position: "top-right",
@@ -74,6 +100,8 @@ const SignUp = (props) => {
             draggable: true,
             progress: undefined,
           }));
+=======
+>>>>>>> aa8016b6133f75d619fc9000b9208c6249f49682
         } else {
           toast.error(response.data.error, {
             position: "bottom-right",
@@ -138,32 +166,35 @@ const SignUp = (props) => {
     <form className="sign-up-form">
       <h2 className="title">Sign Up</h2>
       
-      <div className="name-input">
-        <div className="div-input-errors">
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="name"
-              value={newUser.name}
-              onChange={valuesHandler}
-            />
+      <div className="div-input-errors">
+        <div className="name-input">
+          <div className="flex-row">
+            
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="name"
+                value={newUser.name}
+                onChange={valuesHandler}
+              />
+            </div>
+              <p>{errorInputs.name}</p>
           </div>
-          <p>{errorInputs.name}</p>
-        </div>
-        <div className="div-input-errors">
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lastName"
-              value={newUser.lastName}
-              onChange={valuesHandler}
-            />
+          <div className="flex-row">
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lastName"
+                value={newUser.lastName}
+                onChange={valuesHandler}
+              />
+            </div>
+                <p>{errorInputs.lastName}</p>
           </div>
-          <p>{errorInputs.lastName}</p>
         </div>
       </div>
       <div className="div-input-errors">
