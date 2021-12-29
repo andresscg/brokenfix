@@ -7,7 +7,9 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = (props) => {
+
   const dispatch = useDispatch();
+  const [errorInputs, setErrorInputs] = useState({}) 
   const [newUser, setNewUser] = useState({
     name: "",
     lastName: "",
@@ -15,11 +17,9 @@ const SignUp = (props) => {
     img: "",
     password: "",
     phoneNumber: "",
-    address: {
-      street: "",
-      number: "",
-      commune: "",
-    }
+    street: "",
+    number: "",
+    commune: "",
   });
   useEffect(() => {
     window.scroll(0, 0);
@@ -47,7 +47,7 @@ const SignUp = (props) => {
       try {
         let response = await dispatch(usersActions.signUpUser(newUser));
         if (response.data.success) {
-          toast.success('Signed in successfully, welcome back!', {
+          toast.success('Signed in successfully, welcome!', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -55,9 +55,16 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
-        } else if (response.data.errors) {
-          let errors = response.data.errors;
+            })
+        } else if (!response.data.success) {
+          let errors = response.data.validate;
+          setErrorInputs({})
+            errors.map(error => setErrorInputs(messageError => {
+              return {
+                ...messageError,
+                [error.path]: error.message
+              }
+            }))
           errors.map((err) => toast.error(err.message, {
             position: "top-right",
             autoClose: 5000,
@@ -93,11 +100,9 @@ const SignUp = (props) => {
       password: res.profileObj.googleId,
       img: res.profileObj.imageUrl,
       phoneNumber: 111111,
-      address: {
-        street: "default",
-        number: 111,
-        commune: "default",
-      },
+      street: "default",
+      number: 111,
+      commune: "default",
       google: true,
     };
     try {
@@ -132,97 +137,125 @@ const SignUp = (props) => {
   return (
     <form className="sign-up-form">
       <h2 className="title">Sign Up</h2>
+      
       <div className="name-input">
+        <div className="div-input-errors">
+          <div className="input-field">
+            <i className="fas fa-user"></i>
+            <input
+              type="text"
+              placeholder="First Name"
+              name="name"
+              value={newUser.name}
+              onChange={valuesHandler}
+            />
+          </div>
+          <p>{errorInputs.name}</p>
+        </div>
+        <div className="div-input-errors">
+          <div className="input-field">
+            <i className="fas fa-user"></i>
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              value={newUser.lastName}
+              onChange={valuesHandler}
+            />
+          </div>
+          <p>{errorInputs.lastName}</p>
+        </div>
+      </div>
+      <div className="div-input-errors">
         <div className="input-field">
-          <i className="fas fa-user"></i>
+          <i className="fas fa-envelope"></i>
           <input
-            type="text"
-            placeholder="First Name"
-            name="name"
-            value={newUser.name}
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={newUser.email}
             onChange={valuesHandler}
           />
         </div>
+          <p>{errorInputs.email}</p>
+      </div>
+      <div className="div-input-errors">
         <div className="input-field">
-          <i className="fas fa-user"></i>
+          <i className="fas fa-lock"></i>
           <input
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            value={newUser.lastName}
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={newUser.password}
             onChange={valuesHandler}
           />
         </div>
+        <p>{errorInputs.password}</p>
       </div>
-      <div className="input-field">
-        <i className="fas fa-envelope"></i>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={newUser.email}
-          onChange={valuesHandler}
-        />
+      <div className="div-input-errors">
+        <div className="input-field">
+          <i className="fas fa-lock"></i>
+          <input
+            type="number"
+            placeholder="Phone Number"
+            name="phoneNumber"
+            value={newUser.phoneNumber}
+            onChange={valuesHandler}
+          />
+        </div>
+        <p>{errorInputs.phoneNumber}</p>
       </div>
-      <div className="input-field">
-        <i className="fas fa-lock"></i>
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={newUser.password}
-          onChange={valuesHandler}
-        />
+      <div className="div-input-errors">
+        <div className="input-field">
+          <i className="fas fa-portrait"></i>
+          <input
+            type="text"
+            placeholder="Profile Pic URL"
+            name="img"
+            value={newUser.img}
+            onChange={valuesHandler}
+          />
+        </div>
+        <p>{errorInputs.img}</p>
       </div>
-      <div className="input-field">
-        <i className="fas fa-lock"></i>
-        <input
-          type="number"
-          placeholder="Phone Number"
-          name="phoneNumber"
-          value={newUser.phoneNumber}
-          onChange={valuesHandler}
-        />
+      <div className="div-input-errors">
+        <div className="input-field">
+          <i className="fas fa-house-user"></i>
+          <input
+            type="text"
+            placeholder="Commune"
+            name="commune"
+            value={newUser.commune}
+            onChange={valuesHandler}
+          />
+        </div>
+        <p>{errorInputs.commune}</p>
       </div>
-      <div className="input-field">
-        <i className="fas fa-portrait"></i>
-        <input
-          type="text"
-          placeholder="Profile Pic URL"
-          name="img"
-          value={newUser.img}
-          onChange={valuesHandler}
-        />
+      <div className="div-input-errors">
+        <div className="input-field">
+          <i className="fas fa-house-user"></i>
+          <input
+            type="text"
+            placeholder="Street"
+            name="street"
+            value={newUser.street}
+            onChange={valuesHandler}
+          />
+        </div>
+        <p>{errorInputs.street}</p>
       </div>
-      <div className="input-field">
-        <i className="fas fa-house-user"></i>
-        <input
-          type="text"
-          placeholder="Commune"
-          name="commune"
-          // value={newUser.address.commune}
-          onChange={(e) => valuesHandler(e)}
-        />
-      </div>
-      <div className="input-field">
-        <i className="fas fa-house-user"></i>
-        <input
-          type="text"
-          placeholder="Street"
-          name="street"
-          // value={newUser.address.street}
-          onChange={(e) => valuesHandler(e)}
-        />
-      </div>
-      <div className="input-field">
-        <i className="fas fa-house-user"></i>
-        <input
-          type="text"
-          placeholder="Number"
-          name="number"
-          // value={newUser.number}
-          onChange={(e) => valuesHandler(e)}
-        />
+      <div className="div-input-errors">
+        <div className="input-field">
+          <i className="fas fa-house-user"></i>
+          <input
+            type="number"
+            placeholder="Number"
+            name="number"
+            value={newUser.number}
+            onChange={valuesHandler}
+          />
+        </div>
+        <p>{errorInputs.number}</p>
       </div>
       <div className="sign-btns">
         <button className="btn sign-up-btn"

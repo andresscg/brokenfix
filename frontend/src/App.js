@@ -1,25 +1,25 @@
+import React, { useEffect } from 'react'
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Sign from './pages/Sign';
 import Services from './pages/Services'
 import { useEffect } from 'react'
 import Service from './pages/Service'
-import { toast } from 'react-toastify';
-import usersActions from './redux/actions/usersActions'
-import { connect } from 'react-redux'
-import AdminPanel from './components/AdminPanel';
+import { connect } from 'react-redux';
+import usersActions from './redux/actions/usersActions';
+import {ToastContainer} from 'react-toastify'
 
-function App({ rdxAuth, rdxLogin }) {
-  useEffect(() => {
-    async function fetchData() {
-      const user = await rdxAuth();
-      user.error && toast(user.error)
-      user.response && rdxLogin({ email: user.response.email, password: user.response.password, google: user.response.google })
+const App = (props) => {
+
+  const { authUser } = props
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+        authUser(localStorage.getItem('token'))
     }
-    localStorage.getItem('token') && fetchData();
-  }, [rdxAuth, rdxLogin])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <BrowserRouter>
@@ -30,15 +30,33 @@ function App({ rdxAuth, rdxLogin }) {
         <Route path="/services" element={<Services />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/services/:id" element={<Service />} />
-        <Route path="/sign" element={<Sign />} />
+        {!props.token && <Route path="/sign" element={<Sign />} />}
+
+        <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
+      <ToastContainer
+        position="bottom-rigth"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        limit={5}
+      />
     </BrowserRouter>
   );
 }
 
+const mapStateToProps = (state) => {
+  return{
+      token: state.users.token
+  }
+}
 const mapDispatchToProps = {
-  rdxAuth: usersActions.isAuth,
-  rdxLogin: usersActions.signInUser
+  authUser: usersActions.authUser
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

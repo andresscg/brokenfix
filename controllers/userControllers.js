@@ -4,17 +4,20 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { password, email, address, workers, admin, phoneNumber, img, lastName, name, google } = req.body
+        let { password, email, street, commune, number, workers, admin, phoneNumber, img, lastName, name, google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
-                res.json({ success: false, error: "El email ya esta en uso", response: null })
+                res.json({ success: false, error: "Email already in use", response: null })
             } else {
                 const hashPass = bcryptjs.hashSync(password, 10)
                 const newUser = new User({
                     password: hashPass,
-                    address,
+                    street,
+                    commune,
+                    number,
                     workers,
+                    img,
                     admin,
                     phoneNumber,
                     lastName,
@@ -29,41 +32,27 @@ const userControllers = {
                 res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
             }
         } catch (error) {
-            console.log(error);
             res.json({ success: false, response: null, error: error })
         }
     },
     signin: async (req, res) => {
-        const { email, password, google } = req.body
+        const {email, password, google} = req.body
         try {
-            const userExists = await User.findOne({ email })
-            if (!email || !password) return res.json({ success: false, error: "All fields should be filled" })
-            if (!userExists) {
-                res.json({ success: false, error: "email y/o contraseña incorrectos" })
-            } else {
-                if (userExists.google && !google) return res.json({ success: false, error: "email y/o contraseña incorrectos" })
-                let samePass = bcryptjs.compareSync(password, userExists.password)
-                console.log(samePass);
-                if (samePass) {
-                    const token = jwt.sign({ ...userExists }, process.env.SECRETKEY)
-                    const { name, img, _id, admin } = userExists
-                    res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
-                } else {
-                    console.log('error');
-                    console.log(password === userExists.password);
-                    res.json({ success: false, error: "email y/o contraseña incorrectos" })
-                }
-            }
-
+            const user = await User.findOne({email})
+            if (!user) throw new Error ("Email or password incorrect");
+            if (user.googleAccount && !google) throw new Error ("Invalid email");
+            const isPassword = bcryptjs.compareSync(password, user.password);
+            if (!isPassword) throw new Error ("Email or password incorrect");
+            const token = jwt.sign({...user}, process.env.SECRETKEY)
+            res.json({success: true, response:{token, name: user.name, img: user.img, lastName: user.lastName, _id: user._id}})
         } catch (error) {
-            res.json({ success: false, response: null, error: error })
+            res.json({success: false, response: error.message})
         }
     },
-    authUser: (req, res) => {
+    authUser : (req, res) => {
         try {
-            const userAuth = req.user
-            res.json({ success: true, response: userAuth, error: null })
-        } catch (error) {
+            res.json({success: true, response: req.user, error: null})
+        } catch(error) {
             res.json({ success: false, response: null, error: error })
         }
     },
