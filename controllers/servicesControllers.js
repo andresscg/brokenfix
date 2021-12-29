@@ -5,7 +5,7 @@ const servicesControllers = {
         const servicesBody = req.body
         let service
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A' || req.user.range === 'B') {
 
                 service = await Service(servicesBody).save()
                 res.json({ succes: true, service })
@@ -21,7 +21,6 @@ const servicesControllers = {
             const services = await Service.find()
             res.json({ success: true, services })
 
-
         } catch (error) {
             res.json({ success: false, error })
         }
@@ -29,7 +28,7 @@ const servicesControllers = {
     getServiceById: async (req, res) => {
         const id = req.params.id
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A' || req.user.range === 'B') {
                 await Service.findOneAndDelete({ _id: id })
                 res.json({ succes: true, msg: 'Service deleted successfully' })
 
@@ -46,7 +45,7 @@ const servicesControllers = {
         const id = req.params.id
         let updatedService
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A' || req.user.range === 'B') {
 
                 const service = await Service.findOne({ _id: id })
                 res.json({ succes: true, service })
@@ -60,7 +59,7 @@ const servicesControllers = {
     deleteService: async (req, res) => {
         const id = req.params.id
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A' || req.user.range === 'B') {
                 updatedService = await Service.findOneAndUpdate({ _id: id }, bodyService, { new: true })
                 res.json({ succes: true, updatedService })
             } else {

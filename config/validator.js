@@ -46,7 +46,7 @@ const validator = (req, res, next) => {  // se valida el register
         })
         ,
         workers: joi.array().messages({}),
-        admin: joi.boolean(),
+        range: joi.string(),
         google: joi.boolean(),
     })
 

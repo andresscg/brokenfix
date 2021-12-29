@@ -21,9 +21,17 @@ const usersReducer = (
             token: null,
             img: null
         }
+    } else if (action.type === 'GET_USERS') {
+        return {
+            ...state,
+            users: action.payload,
+        }
+
     } else {
+
         return state
     }
 }
+
 
 export default usersReducer;
