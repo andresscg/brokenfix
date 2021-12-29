@@ -1,7 +1,7 @@
-const servicesReducer = (state = {allServices:[], newService:{}}, action) => {
-  switch(action.type) {
+const servicesReducer = (state = { allServices: [], newService: {} }, action) => {
+  switch (action.type) {
     case 'GET_SERVICES':
-      return{
+      return {
         ...state,
         allServices: action.payload
       }

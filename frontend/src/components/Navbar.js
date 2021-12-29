@@ -1,23 +1,24 @@
 import React from 'react'
 import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div className="nav-container">
       <Link to='/'>
-          <img src="./assets/logo.svg" alt="logo" className="nav-logo" />
+        <img src="./assets/logo.svg" alt="logo" className="nav-logo" />
       </Link>
       <div className="nav-menu">
-          <Link to="/" className='navbar-links'>
-            Home
-          </Link>
-          <Link to="/services" className='navbar-links'>
-            Services
-          </Link>
-          <Link to='/contact' className='navbar-links'>
-            Contact Us
-          </Link>
+        <Link to="/" className='navbar-links'>
+          Home
+        </Link>
+        <Link to="/services" className='navbar-links'>
+          Services
+        </Link>
+        <Link to='/contact' className='navbar-links'>
+          Contact Us
+        </Link>
       </div>
       <div className='cont-log-sign'>
         <Link to="/sign" className='navbar-links'>
@@ -31,4 +32,12 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return {
+    token: state.users.token,
+    user: state.users.user
+  }
+}
+
+
+export default connect(mapStateToProps)(Navbar)

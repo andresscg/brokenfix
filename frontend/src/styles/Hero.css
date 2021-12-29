@@ -25,9 +25,9 @@ justify-content: flex-end;
     margin-left: 4rem;
 }
 #bgheroimg{
-    height: 75vh;
+    height: 70vh;
     width: 65%;
-    margin-top: -2.4rem;
+    margin-top: 0rem;
 }
 @media  (max-width: 799px){
 .heroAboutus{

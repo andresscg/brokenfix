@@ -1,3 +1,4 @@
+const { boolean } = require('joi');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -10,6 +11,7 @@ const userSchema = new mongoose.Schema({
     admin: { type: Boolean, default: false },
     workers: [{ type: mongoose.Types.ObjectId, ref: 'worker' }],
     address: { street: { type: String, required: true }, number: { type: Number, required: true }, commune: { type: String, required: true } },
+    google: { type: Boolean, default: false }
 });
 
 const User = mongoose.model('user', userSchema);
