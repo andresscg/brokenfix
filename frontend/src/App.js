@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
+import Footer from "./components/Footer"
 import Sign from './pages/Sign';
 import Services from './pages/Services'
 import Service from './pages/Service'
@@ -32,6 +33,7 @@ const App = (props) => {
 
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
+      <Footer/>
       <ToastContainer
         position="bottom-rigth"
         autoClose={5000}

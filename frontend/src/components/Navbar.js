@@ -17,18 +17,18 @@ const Navbar = (props) => {
   return (
     <div className="nav-container">
       <Link to='/'>
-          <img src="./assets/logo.png" alt="logo" className="nav-logo" />
+        <img src="./assets/logo.svg" alt="logo" className="nav-logo" />
       </Link>
       <div className="nav-menu">
-          <Link to="/" className='navbar-links'>
-            Home
-          </Link>
-          <Link to="/services" className='navbar-links'>
-            Services
-          </Link>
-          <Link to='/contact' className='navbar-links'>
-            Contact Us
-          </Link>
+        <Link to="/" className='navbar-links'>
+          Home
+        </Link>
+        <Link to="/services" className='navbar-links'>
+          Services
+        </Link>
+        <Link to='/contact' className='navbar-links'>
+          Contact Us
+        </Link>
       </div>
       { !props.user ? 
         <div className='cont-log-sign'>

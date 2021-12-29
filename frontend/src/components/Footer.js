@@ -36,7 +36,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/services">
+                    <Link className="nav-link" to="/Services">
                       Services
                     </Link>
                   </li>
@@ -67,16 +67,16 @@ const Footer = () => {
       </div>
       <div className="footer-iconos d-flex justify-content-around">
         <h6 className="fs-4 text-light">
-          <i class="bi bi-instagram"></i>
+          <i className="bi bi-instagram"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-twitter"></i>
+          <i className="bi bi-twitter"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-facebook"></i>
+          <i className="bi bi-facebook"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-whatsapp"></i>
+          <i className="bi bi-whatsapp"></i>
         </h6>
       </div>
     </>

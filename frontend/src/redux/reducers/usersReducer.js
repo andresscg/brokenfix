@@ -5,7 +5,8 @@ const usersReducer = (
         img: null
 }, action) => {
     console.log(action)
-    if (action.type === 'LOG_USER') {
+    if(action.type === 'LOG_USER'){
+        localStorage.setItem('token', action.payload.token);
         return {
             ...state,
             user : action.payload,
@@ -20,9 +21,17 @@ const usersReducer = (
             token: null,
             img: null
         }
+    } else if (action.type === 'GET_USERS') {
+        return {
+            ...state,
+            users: action.payload,
+        }
+
     } else {
+
         return state
     }
 }
+
 
 export default usersReducer;
