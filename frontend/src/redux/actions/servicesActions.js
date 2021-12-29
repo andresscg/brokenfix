@@ -12,18 +12,9 @@ const servicesActions = {
   },
   getOneService: (id) => {
     return (dispatch, getState) => {
-<<<<<<< HEAD
-      dispatch({type: 'GET_ONE_SERVICE', payload:id});
-    }
-  }
-}
-
-export default servicesActions
-=======
       dispatch({ type: "GET_ONE_SERVICE", payload: id });
     };
   },
 };
 
 export default servicesActions;
->>>>>>> f19d550a25360156d5cea6d3cea4eab0cea1b484

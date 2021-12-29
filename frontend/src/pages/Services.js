@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ServiceCard from "../components/ServiceCard";
-import Footer from "../components/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import servicesActions from "../redux/actions/servicesActions";
 import "../App.css";
@@ -35,7 +34,7 @@ const Service = () => {
           })}
         </div>
       </div>
-      <Footer />
+    
     </>
   );
 };

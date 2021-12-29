@@ -49,6 +49,22 @@ const servicesControllers = {
     } catch (error) {
       res.json({ success: false, error });
     }
+  },
+    updateService: async (req, res) => {
+      const bodyService = req.body
+      const id = req.params.id
+      let updatedService
+      try {
+          if (req.user.admin) {
+              updatedService = await Service.findOneAndUpdate({ _id: id }, bodyService, { new: true })
+              res.json({ succes: true, updatedService })
+          } else {
+              res.json({ success: false, error: 'Unauthorized User, you must be admin' })
+          }
+      } catch (error) {
+          res.json({ succes: false, error })
+      }
 }
+
 }
 module.exports = servicesControllers;
