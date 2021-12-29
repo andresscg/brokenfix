@@ -30,6 +30,8 @@ const Review = (props) => {
           <div className="edit-box">
             <input type="text" defaultValue={props.newReview.comment} ref={inputHandler} />
             <input type="number" defaultValue={props.newReview.rating} ref={inputHandler} />
+            <i className="fas fa-paper-plane send" onClick={() => props.editNewReview(props.newReview._id, inputHandler.current.value, token)}></i>
+            <i className="fas fa-trash-alt delete" onClick={confirmAlert}></i>
           </div>
       }
     </div>

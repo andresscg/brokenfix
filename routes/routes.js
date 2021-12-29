@@ -40,7 +40,7 @@ Router.route('/admin/services')
     .post(passport.authenticate('jwt', { session: false }), addService)
 Router.route('/admin/service/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteService)
-    .put(passport.authenticate('jwt', { session: false }), updateService)
+    // .put(passport.authenticate('jwt', { session: false }), updateService)
 
 // admin handler workers
 Router.route('/admin/workers')

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/WorkerCard.css'
 
 const WorkerCard = (props) => {
   const {_id, name, lastName, img, services, schedule} = props.data;
@@ -7,7 +8,7 @@ const WorkerCard = (props) => {
     <div className="worker-card" key={_id}>
       <div className="worker-container">
         <div className="worker-info">
-          <img src={`/asstes/workers/${img}`} alt={img} className="worker-picture"/>
+          <div styles={{backgroundImage: `url(/assets/workers/${img}.jpg)`}} alt={img} className="worker-picture"/>
           <h3 className="worker-name">
             {name} {lastName}
           </h3>
