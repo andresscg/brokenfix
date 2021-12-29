@@ -8,7 +8,6 @@ const usersReducer = (
     }, action) => {
     if (action.type === 'LOG_USER') {
         localStorage.setItem('token', action.payload.token);
-        console.log(typeof action.payload.range);
         return {
             ...state,
 
@@ -28,9 +27,15 @@ const usersReducer = (
     } else if (action.type === 'GET_USERS') {
         return {
             ...state,
-            users: action.payload,
+            users: action.payload
         }
 
+    } else if (action.type === 'DELETE_USER') {
+
+        return {
+            ...state,
+            users: state.users
+        }
     } else {
 
         return state

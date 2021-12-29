@@ -71,9 +71,8 @@ const usersActions = {
                 const res = await axios.delete(`http://localhost:4000/api/admin/user/${userId}`, {
                     headers: { 'Authorization': 'Bearer ' + token }
                 })
-
-                dispatch({ type: 'GET_USERS', payload: res.data.users })
-                return res.data.deleted
+                // dispatch({ type: 'DELETE_USER', payload: res.data.users })
+                return res.data.users
             } catch (error) {
                 return { msg: 'You must be login' }
             }

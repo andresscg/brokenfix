@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const SignUp = (props) => {
 
   const dispatch = useDispatch();
-  const [errorInputs, setErrorInputs] = useState({}) 
+  const [errorInputs, setErrorInputs] = useState({})
   const [newUser, setNewUser] = useState({
     name: "",
     lastName: "",
@@ -21,7 +21,7 @@ const SignUp = (props) => {
     number: "",
     commune: "",
   });
-  
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -56,52 +56,39 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            })
+          })
         } else if (!response.data.success) {
           let errors = response.data.validate;
-          if(errors !== undefined) {
-              setErrorInputs({})
-                errors.map(error => setErrorInputs(messageError => {
-                  return {
-                    ...messageError,
-                    [error.path]: error.message
-                  }
-                }))
-              errors.map((err) => toast.error(err.message, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                }));
-              } else {
-                const errorEmail = response.data.error
-                setErrorInputs({email: errorEmail})
-                toast.error(errorEmail, {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  })
+          if (errors !== undefined) {
+            setErrorInputs({})
+            errors.map(error => setErrorInputs(messageError => {
+              return {
+                ...messageError,
+                [error.path]: error.message
               }
-<<<<<<< HEAD
             }))
-          errors.map((err) => toast.error(err.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }));
-=======
->>>>>>> aa8016b6133f75d619fc9000b9208c6249f49682
+            errors.map((err) => toast.error(err.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            }));
+          } else {
+            const errorEmail = response.data.error
+            setErrorInputs({ email: errorEmail })
+            toast.error(errorEmail, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
+          }
         } else {
           toast.error(response.data.error, {
             position: "bottom-right",
@@ -165,11 +152,11 @@ const SignUp = (props) => {
   return (
     <form className="sign-up-form">
       <h2 className="title">Sign Up</h2>
-      
+
       <div className="div-input-errors">
         <div className="name-input">
           <div className="flex-row">
-            
+
             <div className="input-field">
               <i className="fas fa-user"></i>
               <input
@@ -180,7 +167,7 @@ const SignUp = (props) => {
                 onChange={valuesHandler}
               />
             </div>
-              <p>{errorInputs.name}</p>
+            <p>{errorInputs.name}</p>
           </div>
           <div className="flex-row">
             <div className="input-field">
@@ -193,7 +180,7 @@ const SignUp = (props) => {
                 onChange={valuesHandler}
               />
             </div>
-                <p>{errorInputs.lastName}</p>
+            <p>{errorInputs.lastName}</p>
           </div>
         </div>
       </div>
@@ -208,7 +195,7 @@ const SignUp = (props) => {
             onChange={valuesHandler}
           />
         </div>
-          <p>{errorInputs.email}</p>
+        <p>{errorInputs.email}</p>
       </div>
       <div className="div-input-errors">
         <div className="input-field">

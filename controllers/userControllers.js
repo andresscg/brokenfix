@@ -22,7 +22,6 @@ const userControllers = {
                     lastName,
                     name,
                     email,
-                    img,
                     google
                 })
                 await newUser.save()
@@ -96,10 +95,19 @@ const userControllers = {
         try {
             if (req.user.range === 'A' || req.user.range === 'B') {
                 const id = req.params.id
-                const user = await User.findOne({ _id: id })
-                if (user.range !== 'A') {
-                    const userDeleted = await User.findOneAndDelete({ _id: id })
-                    res.json({ success: true, msg: 'User was deleted successfully ', deleted: userDeleted })
+                const users = await User.find()
+                const deletedUserIndex = users.findIndex(user => user._id.toString() === id.toString())
+
+                if (users[deletedUserIndex].range !== 'A') {
+
+                    users.splice(deletedUserIndex, 1)
+                    await users.save()
+                    // const deletedUser = await User.findOneAndDelete({ _id: id })
+                    // const deletedIndex = state.users.findIndex(user => user === action.payload)
+                    // state.users.splice(deletedIndex, 1)
+                    // console.log(state.users);
+                    console.log(users);
+                    // res.json({ success: true, msg: 'User was deleted successfully ', users })
 
                 } else {
                     res.json({ success: false })

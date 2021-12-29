@@ -6,7 +6,6 @@ import usersActions from "../redux/actions/usersActions";
 
 const Navbar = (props) => {
 
-  console.log(props)
   // const {img} = props.img
   const logOutHandler = (e) => {
     e.preventDefault()

@@ -25,7 +25,6 @@ const App = (props) => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        {console.log(props.range === 'B')}
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         {(props.range === 'B' || props.range === 'A') && <Route path="/admin-panel" element={<AdminPanel />} />}
