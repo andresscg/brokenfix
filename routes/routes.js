@@ -23,7 +23,7 @@ Router.route('/user/signup')
 Router.route('/workers/services/:id')
     .get(getWorkersByService)
 
-Router.route('/users/signin')
+Router.route('/user/signin')
     .post(signin)
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
