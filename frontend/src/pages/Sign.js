@@ -5,12 +5,12 @@ import SignUp from "../components/SignUp";
 import "../styles/SignForm.css";
 
 const Sign = (props) => {
-  // const token = useSelector((state) => state.users.token);
-  // useEffect(() => {
-  //   if (token) {
-  //     props.history.push("/");
-  //   }
-  // });
+  const token = useSelector((state) => state.users.token);
+  useEffect(() => {
+    if (token) {
+      props.history.push("/");
+    }
+  });
   const [activeForm, setActiveForm] = useState("signIn");
   const handleClick = () => {
     activeForm === "signIn" ? setActiveForm("signUp") : setActiveForm("signIn");
