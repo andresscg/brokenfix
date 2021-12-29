@@ -13,7 +13,7 @@ const Hero = () => {
         <img id="bgheroimg" src="../assets/hero2.png" alt="herobackground"/>
       </div>
       <div className='buttonshero'>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/cleaning.png" /></button>
+        <button  className='btnhero'> <Link to="/services/61c8d6cc34922188861306ec"> <img className='imgbtn' src="../assets/cleaning.png" /></Link></button>
         <button  className='btnhero'><img className='imgbtn' src="../assets/Electrician.png" /></button>
         <button  className='btnhero'><img className='imgbtn' src="../assets/gas.png" /></button>
         <button  className='btnhero'><img className='imgbtn' src="../assets/plumber.png" /></button>
