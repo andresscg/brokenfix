@@ -1,7 +1,7 @@
 import React from 'react'
 
 const WorkerCard = (props) => {
-  const {_id, name, lastName, img, service, schedule} = props.data;
+  const {_id, name, lastName, img, services, schedule} = props.data;
 
   return (
     <div className="worker-card" key={_id}>
@@ -12,7 +12,7 @@ const WorkerCard = (props) => {
             {name} {lastName}
           </h3>
           <h4 className="worker-service">
-            {service.name}
+            {services.name}
           </h4>
           <div className="worker-schedule">
             {schedule.map(day => {
