@@ -1,0 +1,150 @@
+.hbtitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+.hbh2{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+}
+.bhimg{
+    margin-top: 3rem;
+    width: 85%;
+    z-index: -1;
+}
+.placeforcomments{
+    display: flex;
+    flex-direction: column;
+    margin-left: 61.3rem;
+    background-color: white;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.082);
+    border-right: none;
+    width: 28%;
+    height: 12rem;
+    margin-top: -5rem;
+    z-index: 5;
+}
+.social{
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    display: flex;
+    margin-left: 1rem;
+    border-radius: 50%;
+    justify-content: center;
+    border: var(--navBar) solid 3px;
+    z-index: 12;
+}
+.blockquote-footer{
+    margin-top: 1rem;
+    margin-left: 16rem;
+}
+@media (max-width: 1030px) {
+    .bhimg{
+        width: 80%;
+    }
+    .placeforcomments{
+        margin-left: 39.8rem;
+    }
+    .blockquote{
+        font-size: 14px;
+    }
+    .blockquote-footer{
+        margin-left: 10rem;
+    }
+}
+@media (max-width:770px) {
+    .placeforcomments{
+        margin-left: 29.8rem;
+        height: 8rem;
+    }
+    .social{
+        width: 60px;
+        height: 60px;
+    }
+    .blockquote-footer{
+        margin-left: 6rem;
+    }
+    .blockquote{
+        font-size: 9px;
+    }
+    .bhimg{
+        margin-top: 1rem;
+    }
+    .hbh2{
+        font-size: 30px;
+    }
+}
+@media (max-width:430px) {
+    .placeforcomments{
+        margin-left: 17.8rem;
+        height: 8rem;
+        margin-top: -3rem;
+    }
+    .social{
+        width: 40px;
+        height: 40px;
+    }
+    .blockquote-footer{
+        margin-left: 2rem;
+    }
+    .blockquote{
+        font-size: 8px;
+    }
+    .bhimg{
+        margin-top: 1rem;
+        width: 90%;
+        
+    }
+    .hbh2{
+        font-size: 30px;
+    }
+}
+@media (max-width:385px){
+    .herotext{
+        margin-top: 1rem;
+    }
+    .placeforcomments{
+        margin-left: 12.3rem;
+        height: 6rem;
+        margin-top: -2rem;
+        width: 10rem;
+    }
+    .social{
+        width: 40px;
+        height: 40px;
+    }
+    .blockquote-footer{
+        margin-left: 3rem;
+    }
+    .blockquote{
+        font-size: 8px;
+    }
+    .bhimg{
+        margin-top: 1rem;
+        width: 90%;
+        
+    }
+    .hbh2{
+        font-size: 30px;
+    }
+}
+@media (max-width: 375px){
+    .placeforcomments{
+        margin-left: 12.4rem;
+        height: 6rem;
+        margin-top: -1rem;
+        width: 9rem;
+    } 
+    .blockquote{
+        font-size: 7px;
+    }
+}
+@media (max-width: 320px){
+    .placeforcomments{
+        margin-left: 10rem;
+    }
+}

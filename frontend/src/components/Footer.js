@@ -1,11 +1,12 @@
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Footer = () => {
   return (
     <>
       <div className="footer-contenedor d-flex align-items-center">
-        <img src="https://th.bing.com/th/id/R.471c98cfd98c131a4f57528b8a6551d0?rik=PDjrcLMKqLgOLA&riu=http%3a%2f%2f2.bp.blogspot.com%2f-rhot-xS-PFA%2fUQ2PYKahIDI%2fAAAAAAAAAFI%2fkdFyYR02NCg%2fs1600%2flogo-nike_verde.png&ehk=nbsx7hSwnSBJQNc88ZvrYvRX4%2fhRPtIMC%2fA%2bG8ryVf0%3d&risl=&pid=ImgRaw&r=0" />
+        <img className="logofooter" src="../assets/logo.png" />
         <div className="footer-menu">
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
@@ -66,16 +67,16 @@ const Footer = () => {
       </div>
       <div className="footer-iconos d-flex justify-content-around">
         <h6 className="fs-4 text-light">
-          <i class="bi bi-instagram"></i>
+          <i className="bi bi-instagram"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-twitter"></i>
+          <i className="bi bi-twitter"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-facebook"></i>
+          <i className="bi bi-facebook"></i>
         </h6>
         <h6 className="fs-4 text-light">
-          <i class="bi bi-whatsapp"></i>
+          <i className="bi bi-whatsapp"></i>
         </h6>
       </div>
     </>

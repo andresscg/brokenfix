@@ -9,7 +9,7 @@ const workerSchema = new mongoose.Schema({
     services: { type: mongoose.Types.ObjectId, ref: 'service', required: true },
     schedule: [{ day: { type: String, required: true }, morning: { type: Boolean, required: true }, afternoon: { type: Boolean, required: true } }],
     reservation: [{ day: { type: String, required: true }, rangeTime: { type: String, required: true }, user: { type: mongoose.Types.ObjectId, ref: 'user', required: true }, date: { type: Date, default: Date.now } }],
-    reviews: [{ comment: { type: String, required: true }, rating: { type: Number, min: 1, max: 5 }, user: { type: mongoose.Types.ObjectId, ref: 'user', required: true } }],
+    reviews: [{ comment: { type: String }, rating: { type: Number, min: 1, max: 5 }, user: { type: mongoose.Types.ObjectId, ref: 'user', required: true } }],
 });
 
 const Worker = mongoose.model('worker', workerSchema);

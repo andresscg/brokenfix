@@ -96,9 +96,18 @@ form.sign-in-form {
 .name-input {
   display: flex;
   gap: 10px;
+  max-width: 320px;
+
 }
 
-.name-input .input-field {
+@media (min-width: 1000px) {
+  .name-input {
+    max-width: 450px;
+  }
+  
+
+}
+.name-input.flex-row.input-field {
   max-width: 50%;
 }
 
@@ -114,12 +123,14 @@ form.sign-in-form {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  z-index: 20;
 }
 
 .sign-btns {
   display: flex;
   align-items: center;
   gap: 20px;
+  z-index: 20;
 }
 
 
@@ -282,9 +293,6 @@ form.sign-in-form {
     transition: 1s 0.8s ease-in-out;
   }
 
-  .name-input {
-    max-width: 430px;
-  }
   .signin-signup,
   .container-sign.sign-up-mode .signin-signup {
     left: 50%;
@@ -351,7 +359,7 @@ form.sign-in-form {
 
   .container-sign.sign-up-mode:before {
     transform: translate(-50%, 100%);
-    bottom: 32%;
+    bottom: 29%;
     right: initial;
   }
 
@@ -362,7 +370,18 @@ form.sign-in-form {
 
   .container-sign.sign-up-mode .right-panel .image,
   .container-sign.sign-up-mode .right-panel .content {
-    transform: translateY(0px);
+    transform: translateY(45px);
+  }
+
+  @media (max-width: 870px) {
+    .container-sign.sign-up-mode .right-panel .image,
+    .container-sign.sign-up-mode .right-panel .content {
+      transform: translateY(45px);
+    }
+    .container-sign.sign-up-mode:before {
+      bottom: 15%;
+      left: 35%;
+    }
   }
 
   .right-panel .image,
@@ -381,10 +400,6 @@ form.sign-in-form {
     padding: 0 1.5rem;
   }
 
-  .name-input {
-    max-width: 350px;
-  }
-
   .image {
     display: none;
   }
@@ -393,6 +408,7 @@ form.sign-in-form {
   }
   .container-sign {
     padding: 1.5rem;
+    /* height: 140vh; */
   }
 
   .container-sign:before {
@@ -401,12 +417,31 @@ form.sign-in-form {
   }
 
   .container-sign.sign-up-mode:before {
-    bottom: 28%;
+    bottom: 25%;
     left: 50%;
   }
 }
 
-
+@media (max-height: 870px) {
+  .container-sign {
+    height: 130vh;
+  }
+}
+@media (max-height: 770px) {
+  .container-sign {
+    height: 140vh;
+  }
+}
+@media (max-height: 670px) {
+  .container-sign {
+    height: 150vh;
+  }
+}
+@media (max-height: 570px) {
+  .container-sign {
+    height: 170vh;
+  }
+}
 /* AUTOCOMPLET STYLES */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -418,4 +453,21 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.div-input-errors{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80%;
+}
+
+.div-input-errors p {
+  color: #ff3131;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
 }
