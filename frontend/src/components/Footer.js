@@ -11,38 +11,40 @@ const Footer = () => {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
               <div className="linksnav">
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      to="/"
-                    >
-                      Home
-                    </Link>
-                    <Link className="nav-link" to="/services">
-                      Services
-                    </Link>
-                    <Link className="nav-link" to="/contact">
-                      Contact
-                    </Link>
-                    </div>
-                    </div>
-          </nav>
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/"
+                >
+                  Home
+                </Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Services">
+                  Services
+                </Link>
+                <Link className="nav-link" to="/contact">
+                  Contact
+                </Link>
+              </li>
+            </div>
         </div>
-      </div>
-      <div className="footer-iconos d-flex justify-content-around">
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-instagram"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-twitter"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-facebook"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-whatsapp"></i>
-        </h6>
-      </div>
+      </nav>
+    </div>
+      </div >
+  <div className="footer-iconos d-flex justify-content-around">
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-instagram"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-twitter"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-facebook"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-whatsapp"></i>
+    </h6>
+  </div>
     </>
   );
 };
