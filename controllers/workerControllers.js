@@ -47,5 +47,15 @@ const workerControllers = {
         }
         res.json({ success: update ? true : false })
     },
+    getWorkersByService: async(req, res) => {
+        const id = req.params.id
+        let workers;
+        try{
+            workers = await Worker.find({services: id})
+        }catch(err){
+            console.log(err);
+        }
+        res.json({response: workers, success: true})
+    }
 };
 module.exports = workerControllers;

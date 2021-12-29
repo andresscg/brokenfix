@@ -8,7 +8,7 @@ const workerControllers = require('../controllers/workerControllers')
 const userControllers = require('../controllers/userControllers')
 
 const { addService, getServices } = servicesControllers
-const { addWorker } = workerControllers
+const { addWorker, getWorkersByService } = workerControllers
 const { addUser, signin, authUser } = userControllers
 
 Router.route('/services')
@@ -19,6 +19,9 @@ Router.route('/workers')
     .post(addWorker)
 Router.route('/users/signup')
     .post(validator, addUser)
+
+Router.route('/workers/services/:id')
+    .get(getWorkersByService)
 
 Router.route('/users/signin')
     .post(signin)
