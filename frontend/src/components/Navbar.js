@@ -32,12 +32,12 @@ const Navbar = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    token: state.users.token,
-    user: state.users.user
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     token: state.users.token,
+//     user: state.users.user
+//   }
+// }
 
 
-export default connect(mapStateToProps)(Navbar)
+export default Navbar

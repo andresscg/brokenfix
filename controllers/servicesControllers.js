@@ -22,7 +22,7 @@ const servicesControllers = {
 
 
             const services = await Service.find()
-            res.json({ succes: true, services })
+            res.json({ success: true, services })
 
 
         } catch (error) {

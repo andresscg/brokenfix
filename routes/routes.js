@@ -6,7 +6,7 @@ const workerControllers = require('../controllers/workerControllers')
 const userControllers = require('../controllers/userControllers')
 
 const { addService, getServices, deleteService, updateService } = servicesControllers
-const { addWorker, getWorkersByService, deleteWorker, modifyWorker } = workerControllers
+const { addWorker, getWorkers, getWorkersByService, deleteWorker, modifyWorker } = workerControllers
 const { addUser, getUsers, signin, authUser, deleteUser, updateUser } = userControllers
 
 
