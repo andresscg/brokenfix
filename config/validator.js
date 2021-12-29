@@ -9,7 +9,7 @@ const validator = (req, res, next) => {
             'string.pattern.base': 'Name should contain just letters from a-z or A-Z',
             'string.max': 'Name length must be less than or equal to 12 characters long'
         }),
-        password: joi.string().min(6).max(16).trim().messages({
+        password: joi.string().min(6).trim().messages({
             'string.min': 'Password must be greater than or equal to 3',
             'string.ax': 'Password must be less than or equal to 3',
             'string.empty': 'Password is not allowed to be empty',
