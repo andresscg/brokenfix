@@ -28,7 +28,7 @@ const Service = (props) => {
 
   return (
     <div className="service-section">
-      <h1>Her you can find all workers offering {service.name} services</h1>
+      <h1>Here you can find all workers offering {service.name} services</h1>
       <div className="workers-cards">
         {workers.map(worker => {
           return <WorkerCard data={worker} key={worker._id} />

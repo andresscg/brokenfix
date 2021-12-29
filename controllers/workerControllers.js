@@ -76,15 +76,15 @@ const workerControllers = {
         const id = req.params.id
         let workers;
         try {
-            workers = await Worker.find({ services: id })
+            workers = await Worker.find({ services: id }).populate('services').populate('reviews.user')
         } catch (err) {
             console.log(err);
         }
         res.json({ response: workers, success: true })
     },
     rateAndComment: async (req, res) => {
-        const rate = req.body.reviews.rating
-        const text = req.body.reviews.comment
+        const rate = req.body.review.rating
+        const text = req.body.review.comment
         try {
             if (req.user) {
                 const worker = await Worker.findOne({ _id: req.params.id })
@@ -97,7 +97,7 @@ const workerControllers = {
                     }
                     worker.reviews[updateReviewIndex] = newReviewObj
                     await worker.save()
-                    res.json({ msg: 'El usuario ya lo clasifico', reviews: worker.reviews })
+                    res.json({ msg: 'You already reviewed this worker, your review will be updated!', reviews: worker.reviews })
                 } else {
 
                     const newReviewObj = {
@@ -108,7 +108,7 @@ const workerControllers = {
                     worker.reviews.unshift(newReviewObj)
 
                     await worker.save()
-                    res.json({ msg: 'El usuario no lo ha clasificado', reviews: worker.reviews })
+                    res.json({ msg: 'Review posted, thank you!', reviews: worker.reviews })
                 }
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be login' })
