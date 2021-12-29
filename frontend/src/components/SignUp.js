@@ -21,6 +21,7 @@ const SignUp = (props) => {
     number: "",
     commune: "",
   });
+  
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -42,7 +43,7 @@ const SignUp = (props) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      });
+        });
     } else {
       try {
         let response = await dispatch(usersActions.signUpUser(newUser));
@@ -58,22 +59,36 @@ const SignUp = (props) => {
             })
         } else if (!response.data.success) {
           let errors = response.data.validate;
-          setErrorInputs({})
-            errors.map(error => setErrorInputs(messageError => {
-              return {
-                ...messageError,
-                [error.path]: error.message
+          if(errors !== undefined) {
+              setErrorInputs({})
+                errors.map(error => setErrorInputs(messageError => {
+                  return {
+                    ...messageError,
+                    [error.path]: error.message
+                  }
+                }))
+              errors.map((err) => toast.error(err.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                }));
+              } else {
+                const errorEmail = response.data.error
+                setErrorInputs({email: errorEmail})
+                toast.error(errorEmail, {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  })
               }
-            }))
-          errors.map((err) => toast.error(err.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }));
         } else {
           toast.error(response.data.error, {
             position: "bottom-right",
@@ -83,7 +98,7 @@ const SignUp = (props) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          });
+            });
         }
       } catch (err) {
         console.error(err);
@@ -116,8 +131,8 @@ const SignUp = (props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        })
-      } else {
+          })
+      }else{
         toast.warn(response.data.error, {
           position: "bottom-right",
           autoClose: 5000,
@@ -126,7 +141,7 @@ const SignUp = (props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        })
+          })
       }
     } catch (err) {
       console.error(err);
@@ -138,32 +153,35 @@ const SignUp = (props) => {
     <form className="sign-up-form">
       <h2 className="title">Sign Up</h2>
       
-      <div className="name-input">
-        <div className="div-input-errors">
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="name"
-              value={newUser.name}
-              onChange={valuesHandler}
-            />
+      <div className="div-input-errors">
+        <div className="name-input">
+          <div className="flex-row">
+            
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="name"
+                value={newUser.name}
+                onChange={valuesHandler}
+              />
+            </div>
+              <p>{errorInputs.name}</p>
           </div>
-          <p>{errorInputs.name}</p>
-        </div>
-        <div className="div-input-errors">
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lastName"
-              value={newUser.lastName}
-              onChange={valuesHandler}
-            />
+          <div className="flex-row">
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lastName"
+                value={newUser.lastName}
+                onChange={valuesHandler}
+              />
+            </div>
+                <p>{errorInputs.lastName}</p>
           </div>
-          <p>{errorInputs.lastName}</p>
         </div>
       </div>
       <div className="div-input-errors">
@@ -258,8 +276,8 @@ const SignUp = (props) => {
         <p>{errorInputs.number}</p>
       </div>
       <div className="sign-btns">
-        <button className="btn sign-up-btn"
-          onClick={formHandler}
+        <button className="btn sign-up-btn" 
+        onClick={formHandler}
         >
           SIGN UP
         </button>

@@ -40,3 +40,15 @@
   width: 100%;
   text-decoration: none;
 }
+
+.service-section {
+  padding: 10px 20px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.workers-cards {
+  width: 100%;
+}
