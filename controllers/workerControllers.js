@@ -76,7 +76,7 @@ const workerControllers = {
         const id = req.params.id
         let workers;
         try{
-            workers = await Worker.find({services: id}).populate('services')
+            workers = await Worker.find({services: id}).populate('services').populate('reviews.user')
         }catch(err){
             console.log(err);
         }
@@ -97,7 +97,7 @@ const workerControllers = {
                     }
                     worker.reviews[updateReviewIndex] = newReviewObj
                     await worker.save()
-                    res.json({ msg: 'You already reviewed this worker, your review will be updated!', reviews: worker.reviews })
+                    res.json({ msg: 'You already reviewed this worker, your review will be updated!', reviews: worker.reviews})
                 } else {
 
                     const newReviewObj = {

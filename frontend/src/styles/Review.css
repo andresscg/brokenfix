@@ -1,0 +1,25 @@
+.review-text {
+  color: #fff;
+}
+
+.review-rating {
+  color: #fff;
+}
+
+.user-photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.user-name {
+  color: #fff;
+}
+
+.send, .delete, .edit {
+  background-color: #fff;
+  color: #000;
+}

@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import {useSelector} from 'react-redux';
+import '../styles/Review.css'
 
 
 const Review = (props) => {
