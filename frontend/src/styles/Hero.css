@@ -10,7 +10,7 @@ justify-content: flex-end;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     color: rgba(240, 248, 255, 0.842);
-    font-size: 55px;
+    font-size: 60px;
     margin-left: 4rem;
     margin-top: 5rem;
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.37);
@@ -29,6 +29,57 @@ justify-content: flex-end;
     width: 65%;
     margin-top: 0rem;
 }
+.buttonshero{
+    display: flex;
+    flex-direction: row;
+    margin-top: -3rem;
+    justify-content: center;
+}
+.btnhero{
+    height: 14%;
+    width: 12%;
+    margin-left: 3rem;
+    border: none;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.301);
+}
+.btnhero:hover{
+    background-color: #8AE38C;
+}
+.imgbtn{
+    height: 100%;
+    width: 100%;
+}
+@media(max-width: 1030px){
+    .heroAboutus{
+        font-size: 35px;
+    }
+    #bgheroimg{
+        height: 70vh;
+        width: 55%;
+        margin-top: .1rem;
+    }
+    .heroAboutus2{
+            font-size: 16px;
+    }
+    .buttonshero{
+        margin-top: -2.5rem;
+        justify-content: start;
+    }
+    .btnhero{
+        height: 12%;
+        width: 13%;
+        margin-left: 1.5rem;
+    }
+    
+}
+@media (max-width:980px){
+    .heroAboutus{
+        font-size: 28px;
+    }
+    .heroAboutus2{
+        font-size: 14px;
+    }
+}
 @media  (max-width: 799px){
 .heroAboutus{
     font-size: 30px;
@@ -41,6 +92,15 @@ justify-content: flex-end;
 .heroAboutus2{
         font-size: 15px;
     }
+.buttonshero{
+    margin-top: -2rem;
+}
+.btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1.5rem;
+    }
+    
 }
 @media (max-width:566px){
     .hero{
@@ -50,26 +110,40 @@ justify-content: flex-end;
     #herotext{
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
-    }
+   }
     .heroAboutus{
-        font-size: 20px;
-        margin-left: 1rem;
+        font-size: 16px;
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
     .heroAboutus2{
-        font-size: 15px;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        font-size: 13px;
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
     #bgheroimg{
         width: 85%;
         height: 40vh;
-    }  
+    } 
+    .btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1rem;
+    } 
+    .buttonshero{
+        margin-top: -1rem;
+    }
+    .btnhero{
+        height: 12%;
+        width: 12%;
+        margin-left: 1rem;
+    }
 }    
 @media (max-width:385px){
     .hero{
         flex-direction: column;
         align-items: flex-end;
+        
     }
     #herotext{
         display: flex;
@@ -79,6 +153,8 @@ justify-content: flex-end;
     .heroAboutus{
         font-size: 20px;
         margin-left: 1rem;
+        margin-bottom: 0rem;
+        margin-right: 1rem;
     }
     .heroAboutus2{
         font-size: 12px;
@@ -87,7 +163,15 @@ justify-content: flex-end;
     }
     #bgheroimg{
         width: 85%;
-        height: 45vh;
+        height: 38vh;
+    }
+    .buttonshero{
+        margin-top: -1rem;
+    }
+    .btnhero{
+        height: 14%;
+        width: 14%;
+        margin-left: .5rem;
     }
     
 }

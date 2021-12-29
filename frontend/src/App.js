@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
+import Footer from "./components/Footer"
 import Sign from './pages/Sign';
 import Services from './pages/Services'
 import Service from './pages/Service'
@@ -25,7 +26,6 @@ const App = (props) => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/> } />
-        <Route path="/services/:id" element={<Service/> } />
         <Route path="/services" element={<Services />} />
         {/* <Route path="/admin-panel" element={<AdminPanel />} /> */}
         <Route path="/services/:id" element={<Service />} />
@@ -33,6 +33,7 @@ const App = (props) => {
 
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
+      <Footer/>
       <ToastContainer
         position="bottom-rigth"
         autoClose={5000}

@@ -18,8 +18,6 @@ const servicesControllers = {
     },
     getServices: async (req, res) => {
         try {
-
-
             const services = await Service.find()
             res.json({ success: true, services })
 
@@ -28,7 +26,7 @@ const servicesControllers = {
             res.json({ success: false, error })
         }
     },
-    deleteService: async (req, res) => {
+    getServiceById: async (req, res) => {
         const id = req.params.id
         try {
             if (req.user.admin) {
@@ -43,8 +41,10 @@ const servicesControllers = {
             res.json({ succes: false, })
         }
     },
-    getServiceById: async (req, res) => {
+    updateServiceById: async (req, res) => {
+        const bodyService = req.body
         const id = req.params.id
+        let updatedService
         try {
             if (req.user.admin) {
 
@@ -57,10 +57,8 @@ const servicesControllers = {
             res.json({ success: false, error })
         }
     },
-    updateService: async (req, res) => {
-        const bodyService = req.body
+    deleteService: async (req, res) => {
         const id = req.params.id
-        let updatedService
         try {
             if (req.user.admin) {
                 updatedService = await Service.findOneAndUpdate({ _id: id }, bodyService, { new: true })
