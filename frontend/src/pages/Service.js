@@ -16,7 +16,7 @@ const Service = (props) => {
 
   useEffect(() => {
     if (!services.length) {
-      navigate('/services')
+      navigate("/services");
     }
     try {
       dispatch(servicesActions.getOneService(location.id));

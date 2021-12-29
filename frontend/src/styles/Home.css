@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-main {
+  background: #8ae38b7e;
+  width: 100%;
+  height: 100vh;
+}
+
+.home-main h1 {
+  color: #39d03b;
+  text-shadow: 2px 2px 4px rgb(1, 54, 1);
+}
+
+.home-main img {
+  width: 90vw;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.home-main-comments {
+  background: linear-gradient(
+    90deg,
+    #20ec4c93 5%,
+    rgba(21, 165, 59, 0.185) 50%
+  );
+  margin-left: 60%;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.home-main-comments h3 {
+  margin-top: -6%;
+}
+
+h3 {
+  color: #39d03b;
+  text-shadow: 1px 2px 3px rgb(1, 54, 1);
+}
+
+p {
+  color: rgb(1, 54, 1);
+}
