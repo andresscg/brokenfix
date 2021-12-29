@@ -40,7 +40,7 @@ const validator = (req, res, next) => {  // se valida el register
             'string.empty': 'img is not allowed to be empty',
             'string.uri': 'img must be a valid uri'
         }),
-        phoneNumber: joi.number().required().messages({
+        phoneNumber: joi.number().min(6).required().messages({
             'string.empty': 'phoneNumber is not allowed to be empty',
             'string.uri': 'phoneNumber must be a valid uri'
         })
