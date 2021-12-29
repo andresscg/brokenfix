@@ -1,14 +1,15 @@
 import React from 'react'
 import '../styles/WorkerCard.css'
+import Reviews from './Reviews'
 
 const WorkerCard = (props) => {
-  const {_id, name, lastName, img, services, schedule} = props.data;
+  const {_id, name, lastName, img, services, schedule, reviews} = props.data;
 
   return (
     <div className="worker-card" key={_id}>
       <div className="worker-container">
         <div className="worker-info">
-          <div styles={{backgroundImage: `url(/assets/workers/${img}.jpg)`}} alt={img} className="worker-picture"/>
+          <div style={{backgroundImage: `url(/assets/workers/${img}.jpg)`}} className="worker-picture"></div>
           <h3 className="worker-name">
             {name} {lastName}
           </h3>
@@ -34,7 +35,7 @@ const WorkerCard = (props) => {
           </div>
         </div>
         <div className="worker-reviews">
-
+            <Reviews workerId={_id} workerReviews={reviews}/>
         </div>
       </div>
     </div>

@@ -9,6 +9,20 @@ const workersActions = {
       }
       dispatch({type: 'GET_WORKERS_BY_SERVICE', payload: response.data.response})
     }
+  },
+  handleReview: (id, review, token) => {
+    return async () => {
+      try {
+        let response = await axios.put(`http://localhost:4000/api/rate/worker/${id}`, {review}, {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        return response.data
+      }catch(err) {
+        console.log(err)
+      }
+    }
   }
 }
 
