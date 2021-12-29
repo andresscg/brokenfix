@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Footer from "./components/Footer"
@@ -9,32 +9,34 @@ import Services from './pages/Services'
 import Service from './pages/Service'
 import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
-import {ToastContainer} from 'react-toastify'
-
+import { ToastContainer } from 'react-toastify'
+import AdminPanel from './pages/AdminPanel'
 const App = (props) => {
 
   const { authUser } = props
-  useEffect(()=>{
-    if(localStorage.getItem('token')){
-        authUser(localStorage.getItem('token'))
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      authUser(localStorage.getItem('token'))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  }, [])
 
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/> } />
+        {console.log(props.range === 'B')}
+        <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        {/* <Route path="/admin-panel" element={<AdminPanel />} /> */}
+        {(props.range === 'B' || props.range === 'A') && <Route path="/admin-panel" element={<AdminPanel />} />}
         <Route path="/services/:id" element={<Service />} />
         {!props.token && <Route path="/sign" element={<Sign />} />}
 
-        <Route path="*" element={<Navigate to="/"/>} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Footer/>
+      <Footer />
       <ToastContainer
+
         position="bottom-rigth"
         autoClose={5000}
         hideProgressBar={false}
@@ -51,8 +53,9 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  return{
-      token: state.users.token
+  return {
+    token: state.users.token,
+    range: state.users.role,
   }
 }
 const mapDispatchToProps = {

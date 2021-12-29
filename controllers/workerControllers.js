@@ -72,19 +72,19 @@ const workerControllers = {
             res.json({ success: false, error })
         }
     },
-    getWorkersByService: async(req, res) => {
+    getWorkersByService: async (req, res) => {
         const id = req.params.id
         let workers;
-        try{
-            workers = await Worker.find({services: id})
-        }catch(err){
+        try {
+            workers = await Worker.find({ services: id })
+        } catch (err) {
             console.log(err);
         }
-        res.json({response: workers, success: true})
+        res.json({ response: workers, success: true })
     },
     rateAndComment: async (req, res) => {
-        const rate = req.body.reviews[0].rating
-        const text = req.body.reviews[0].comment
+        const rate = req.body.reviews.rating
+        const text = req.body.reviews.comment
         try {
             if (req.user) {
                 const worker = await Worker.findOne({ _id: req.params.id })

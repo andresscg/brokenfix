@@ -23,7 +23,7 @@ Router.route('/user/signup')
 Router.route('/workers/services/:id')
     .get(getWorkersByService)
 
-Router.route('/users/signin')
+Router.route('/user/signin')
     .post(signin)
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
@@ -49,7 +49,7 @@ Router.route('/admin/services')
     .post(passport.authenticate('jwt', { session: false }), addService)
 Router.route('/admin/service/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteService)
-    // .put(passport.authenticate('jwt', { session: false }), updateService)
+// .put(passport.authenticate('jwt', { session: false }), updateService)
 
 // admin handler workers
 Router.route('/admin/workers')

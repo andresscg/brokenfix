@@ -1,6 +1,12 @@
-const workersReducer = (state = {workersByService:[]}, action) => {
+const workersReducer = (state = { workersByService: [], workers: [] }, action) => {
   switch (action.type) {
-    case 'GET_WORKERS_BY_SERVICE': 
+    case 'GET_WORKERS':
+      console.log(action.payload);
+      return {
+        ...state,
+        workers: action.payload
+      }
+    case 'GET_WORKERS_BY_SERVICE':
       return {
         ...state,
         workersByService: action.payload
