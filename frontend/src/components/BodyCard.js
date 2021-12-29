@@ -4,10 +4,6 @@ import "../styles/BodyCard.css";
 const BodyCard = () => {
   return (
     <>
-    {/* <div className="titleh3">
-        <h3>Our specialties</h3>
-    </div> */}
-    
       <div className="container fluid">
         <div className="e-card">
           <div className="e-card-image">
