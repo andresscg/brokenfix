@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { password, email, address, workers, admin, phoneNumber, img, lastName, name, google } = req.body
+        let { password, email, address, workers, range, phoneNumber, img, lastName, name, google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -15,7 +15,7 @@ const userControllers = {
                     password: hashPass,
                     address,
                     workers,
-                    admin,
+                    range,
                     phoneNumber,
                     lastName,
                     name,
@@ -26,7 +26,7 @@ const userControllers = {
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
                 const { _id } = newUser
-                res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
+                res.json({ success: true, response: { name, img, token, _id, range }, error: null })
             }
         } catch (error) {
             console.log(error);
@@ -46,8 +46,8 @@ const userControllers = {
                 console.log(samePass);
                 if (samePass) {
                     const token = jwt.sign({ ...userExists }, process.env.SECRETKEY)
-                    const { name, img, _id, admin } = userExists
-                    res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
+                    const { name, img, _id, range } = userExists
+                    res.json({ success: true, response: { name, img, token, _id, range }, error: null })
                 } else {
                     console.log('error');
                     console.log(password === userExists.password);
@@ -69,7 +69,7 @@ const userControllers = {
     },
     getUsers: async (req, res) => {
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A' || req.user.range === 'B') {
                 const users = await User.find()
                 res.json({ success: true, users })
             } else {
@@ -80,29 +80,49 @@ const userControllers = {
         }
     },
     updateUser: async (req, res) => {
-        const id = req.params.id
         const userBody = req.body
         let userUpdated
         try {
-            if (req.user.admin) {
+            if (req.user.range === 'A') {
+                const id = req.params.id
                 userUpdated = await User.findOneAndUpdate({ _id: id }, userBody, { new: true })
                 res.json({ success: true, userUpdated })
-            } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
+            } else if (req.user.range === 'C' || req.user.range === 'B') {
+                if (!userBody.range) {
+                    userUpdated = await User.findOneAndUpdate({ _id: req.user._id }, userBody, { new: true })
+                    res.json({ success: true, userUpdated })
+                } else {
+                    res.json({ success: false })
+                }
 
+            } else {
+
+                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
         }
     },
     deleteUser: async (req, res) => {
-        const id = req.params.id
         try {
-            if (req.user.admin) {
-                await User.findOneAndDelete({ _id: id })
-                res.json({ success: true, msg: 'User was deleted sccessfully' })
+            if (req.user.range === 'A' || req.user.range === 'B') {
+                const id = req.params.id
+                const user = await User.findOne({ _id: id })
+                if (user.range !== 'A') {
+                    await User.findOneAndDelete({ _id: id })
+                    res.json({ success: true, msg: 'User was deleted successfully ' })
+
+                } else {
+                    res.json({ success: false })
+
+                }
+            } else if (req.user.range === 'C') {
+                await User.findOneAndDelete({ _id: req.user._id })
+                res.json({ success: true, msg: 'The account has been deleted successfully ' })
+
             } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
+                res.json({ success: false, error: 'Unauthorized User' })
+
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })

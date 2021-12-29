@@ -6,7 +6,7 @@ const workerControllers = require('../controllers/workerControllers')
 const userControllers = require('../controllers/userControllers')
 
 const { addService, getServices, deleteService, updateService } = servicesControllers
-const { addWorker, getWorkers, deleteWorker, modifyWorker, rateWorker } = workerControllers
+const { addWorker, getWorkers, deleteWorker, modifyWorker, rateAndComment, deleteReview } = workerControllers
 const { addUser, getUsers, signin, authUser, deleteUser, updateUser } = userControllers
 
 
@@ -24,9 +24,13 @@ Router.route('/user/signin')
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
 
+Router.route('/worker/:id/review/:reviewId')
+    .delete(passport.authenticate('jwt', { session: false }), deleteReview)
+
+
 // rating handler
 Router.route('/rate/worker/:id')
-    .put(passport.authenticate('jwt', { session: false }), rateWorker)
+    .put(passport.authenticate('jwt', { session: false }), rateAndComment)
 
 
 // admin handler users

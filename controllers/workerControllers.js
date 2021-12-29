@@ -72,15 +72,22 @@ const workerControllers = {
             res.json({ success: false, error })
         }
     },
-    rateWorker: async (req, res) => {
+    rateAndComment: async (req, res) => {
         const rate = req.body.reviews[0].rating
         const text = req.body.reviews[0].comment
         try {
             if (req.user) {
                 const worker = await Worker.findOne({ _id: req.params.id })
-                console.log(worker.reviews.findIndex(workerReview => workerReview.user.toString() === req.user._id.toString()));
                 if (worker.reviews.findIndex(workerReview => workerReview.user.toString() === req.user._id.toString()) !== -1) {
-                    res.json({ msg: 'El usuario ya lo clasifico' })
+                    const updateReviewIndex = worker.reviews.findIndex(workerReview => workerReview.user.toString() === req.user._id.toString())
+                    const newReviewObj = {
+                        comment: !text ? worker.reviews[updateReviewIndex].comment : text,
+                        rating: !rate ? worker.reviews[updateReviewIndex].rating : rate,
+                        user: req.user._id
+                    }
+                    worker.reviews[updateReviewIndex] = newReviewObj
+                    await worker.save()
+                    res.json({ msg: 'El usuario ya lo clasifico', reviews: worker.reviews })
                 } else {
 
                     const newReviewObj = {
@@ -99,6 +106,24 @@ const workerControllers = {
         } catch (error) {
             console.log(error)
             res.json({ success: false, error })
+        }
+    },
+    deleteReview: async (req, res) => {
+        const id = req.params.id
+        const reviewId = req.params.reviewId
+        try {
+            if (req.user) {
+                const worker = await Worker.findOne({ _id: id })
+                const deleteReviewIndex = worker.reviews.findIndex(workerReview => workerReview._id === reviewId)
+                worker.reviews.splice(deleteReviewIndex, 1)
+                await worker.save()
+                res.json({ success: true, msg: 'Review deleted successfully', reviews: worker.reviews })
+
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be login' })
+            }
+        } catch (error) {
+            console.log(error)
         }
     },
 
