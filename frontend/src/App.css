@@ -34,6 +34,20 @@
   gap: 30px;
 }
 
+@media (max-width: 550px) {
+  .services-section {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 1024px) {
+  .services-section {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+}
+
 .service-link {
   opacity: 95%;
   object-fit: cover;
