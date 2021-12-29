@@ -8,7 +8,7 @@ const Homebody = () =>{
                 <h2 className="hbh2">Home services</h2>
             <img className="bhimg" src="../assets/bhimg.jpg"/>
            </div>
-           <div className="placeforcomments">
+           {/* <div className="placeforcomments">
                     <img className="social" src="../assets/social.jpg"/>
                      <blockquote className="blockquote m-3">
                          <p>
@@ -21,7 +21,7 @@ const Homebody = () =>{
                             </footer>
                         </div>
                     </blockquote>
-         </div>
+         </div> */}
          <div className="howto">
                 <h3 className="howtotitle">How to use our page</h3>
                 <div>
