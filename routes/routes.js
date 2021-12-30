@@ -28,8 +28,8 @@ Router.route('/user/signin')
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
 
-Router.route('/worker/:id/review/:reviewId')
-    .delete(passport.authenticate('jwt', { session: false }), deleteReview)
+Router.route('/worker/reviews/:id')
+    .put(passport.authenticate('jwt', { session: false }), deleteReview)
 
 
 // rating handler
@@ -49,7 +49,7 @@ Router.route('/admin/services')
     .post(passport.authenticate('jwt', { session: false }), addService)
 Router.route('/admin/service/:id')
     .delete(passport.authenticate('jwt', { session: false }), deleteService)
-// .put(passport.authenticate('jwt', { session: false }), updateService)
+    // .put(passport.authenticate('jwt', { session: false }), updateService)
 
 // admin handler workers
 Router.route('/admin/workers')

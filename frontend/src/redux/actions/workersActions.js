@@ -23,6 +23,24 @@ const workersActions = {
         console.log(err)
       }
     }
+  },
+  deleteReview: (id, reviewId, token) => {
+    return async () => {
+      let response;
+      try{
+        response = await axios.put(`http://localhost:4000/api/worker/reviews/${id}`, {reviewId},{
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        })
+        console.log(response)
+        if(response.data.success){
+          return response.data
+        }
+      }catch(err) {
+        console.log(err)
+      }
+    }
   }
 }
 

@@ -16,6 +16,7 @@
   height: 100%;
   padding: 3%;
   display: flex;
+  border-radius: .3rem;
   justify-content: center;
   align-items: center;
 }
@@ -60,7 +61,6 @@
   justify-content: center;
   align-items: center;
   color: rgb(12, 8, 8);
-  text-shadow: 1px 1px 1px rgb(21, 165, 59);
 }
 
 .availability {
@@ -72,6 +72,7 @@
 .day {
   text-align: center;
   font-size: 25px;
+  border-radius: .3rem;
   background: rgba(21, 165, 59, 0.158);
 }
 

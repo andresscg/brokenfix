@@ -29,7 +29,7 @@ const Service = (props) => {
   return (
     <div className="main-services service-section p-5">
       <h1 className="services-title pt-3 pb-3">
-        Here you can find all workers offering {service.name} services
+        Here you can find all workers offering {service.name !== undefined? service.name : 'Loading...'} services
       </h1>
       <div className="workers-cards">
         {workers.map((worker) => {
