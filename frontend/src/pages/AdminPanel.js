@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
 
 const AdminPanel = (props) => {
-    const [users, setUsers] = useState()
+    const [users, setUsers] = useState([])
     useEffect(async () => {
         const allUsers = await props.getUsers()
         setUsers(allUsers)
@@ -19,11 +19,8 @@ const AdminPanel = (props) => {
                             {user.name}
                         </div>
                         <div style={{ marginLeft: '1rem' }} className='user-delete'>
-                            <i style={{ cursor: 'pointer' }} onClick={async () => {
-                                const usersUpdated = await props.deleteUser(user._id)
-                                console.log(usersUpdated);
-                                setUsers(usersUpdated)
-                                console.log(users);
+                            <i style={{ cursor: 'pointer' }} onClick={() => {
+                                props.deleteUser(user._id)
                             }} className="fas fa-times"></i>
                         </div>
                     </div>
