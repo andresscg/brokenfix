@@ -7,10 +7,10 @@ const userSchema = new mongoose.Schema({
     img: { type: String },
     password: { type: String, required: true },
     phoneNumber: { type: Number, required: true },
-    admin: { type: Boolean, default: false },
+    range: { type: String, default: 'C' },
     workers: [{ type: mongoose.Types.ObjectId, ref: 'worker' }],
     street: { type: String, required: true },
-    number: { type: Number, required: true }, 
+    number: { type: Number, required: true },
     commune: { type: String, required: true },
     google: { type: Boolean, default: false }
 });

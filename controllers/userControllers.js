@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { password, email, street, commune, number, workers, admin, phoneNumber, img, lastName, name, google } = req.body
+        let { password, email, street, commune, number, workers, phoneNumber, img, lastName, name, google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -26,31 +26,31 @@ const userControllers = {
                 })
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
-                const { _id } = newUser
-                res.json({ success: true, response: { name, img, token, _id, admin }, error: null })
+                const { _id, range } = newUser
+                res.json({ success: true, response: { name, img, token, _id, range }, error: null })
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
         }
     },
     signin: async (req, res) => {
-        const {email, password, google} = req.body
+        const { email, password, google } = req.body
         try {
-            const user = await User.findOne({email})
-            if (!user) throw new Error ("Email or password incorrect");
-            if (user.googleAccount && !google) throw new Error ("Invalid email");
+            const user = await User.findOne({ email })
+            if (!user) throw new Error("Email or password incorrect");
+            if (user.googleAccount && !google) throw new Error("Invalid email");
             const isPassword = bcryptjs.compareSync(password, user.password);
-            if (!isPassword) throw new Error ("Email or password incorrect");
-            const token = jwt.sign({...user}, process.env.SECRETKEY)
-            res.json({success: true, response:{token, name: user.name, img: user.img, lastName: user.lastName, _id: user._id}})
+            if (!isPassword) throw new Error("Email or password incorrect");
+            const token = jwt.sign({ ...user }, process.env.SECRETKEY)
+            res.json({ success: true, response: { range: user.range, token, name: user.name, img: user.img, lastName: user.lastName, _id: user._id } })
         } catch (error) {
-            res.json({success: false, response: error.message})
+            res.json({ success: false, response: error.message })
         }
     },
-    authUser : (req, res) => {
+    authUser: (req, res) => {
         try {
-            res.json({success: true, response: req.user, error: null})
-        } catch(error) {
+            res.json({ success: true, response: req.user, error: null })
+        } catch (error) {
             res.json({ success: false, response: null, error: error })
         }
     },
@@ -63,6 +63,7 @@ const userControllers = {
                 res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }
         } catch (error) {
+
             res.json({ success: false, response: null, error: error })
         }
     },
@@ -96,8 +97,9 @@ const userControllers = {
                 const id = req.params.id
                 const user = await User.findOne({ _id: id })
                 if (user.range !== 'A') {
-                    await User.findOneAndDelete({ _id: id })
-                    res.json({ success: true, msg: 'User was deleted successfully ' })
+                    const deletedUser = await User.findOneAndDelete({ _id: id })
+
+                    res.json({ success: true, msg: 'User was deleted successfully ', deletedId: deletedUser._id })
 
                 } else {
                     res.json({ success: false })
