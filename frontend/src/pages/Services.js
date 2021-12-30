@@ -35,7 +35,6 @@ const Service = () => {
           })}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

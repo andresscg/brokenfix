@@ -19,7 +19,9 @@
   color: #fff;
 }
 
-.send, .delete, .edit {
+.send,
+.delete,
+.edit {
   background-color: #fff;
   color: #000;
 }
