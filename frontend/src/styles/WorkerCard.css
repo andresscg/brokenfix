@@ -98,3 +98,7 @@
     flex-direction: column;
   }
 }
+
+.worker-img-button {
+  flex-direction: column;
+}

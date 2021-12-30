@@ -14,28 +14,36 @@ const WorkerCard = (props) => {
             <h3 className="worker-name">
               {name} {lastName}
             </h3>
-            <div className="worker-picture-active">
-              <div
-                style={{ backgroundImage: `url(${img})` }}
-                className="worker-picture"
-              ></div>
-            <button
-              className="get-in-touch"
-              style={{border: 'none', padding: '5px 15px', backgroundColor: '#15a530', color: '#fff', cursor: 'pointer'}}
-              onClick={() => {
-                toast.success("The worker will contact you soon!", {
-                  position: "bottom-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
-              }}
-            >
-              Get in touch
-            </button>
+            <div className="worker-img-button">
+              <div className="worker-picture-active">
+                <div
+                  style={{ backgroundImage: `url(${img})` }}
+                  className="worker-picture"
+                ></div>
+              <button
+                className="get-in-touch"
+                style={{border: 'none', 
+                padding: '5px 15px', 
+                backgroundColor: '#15a530', 
+                color: '#fff', 
+                cursor: 'pointer', 
+                borderRadius: '.3rem', 
+                marginTop: '.5rem'}}
+                onClick={() => {
+                  toast.success("The worker will contact you soon!", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                }}
+              >
+                Get in touch
+              </button>
+            </div>
             </div>
             <div>
               <h3 className="worker-service">{services.name}</h3>
