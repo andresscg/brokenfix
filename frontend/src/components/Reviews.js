@@ -8,7 +8,7 @@ import workersActions from '../redux/actions/workersActions'
 const Reviews = (props) => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.users.token)
-  const id = useSelector(state => state.users.user._id)
+  // const id = useSelector(state => state.users.user._id)
 
   const [renderReviews, setRenderReviews] = useState(false)
   const [allReviews, setAllReviews] = useState(props.workerReviews)
@@ -23,7 +23,7 @@ const Reviews = (props) => {
     let commentText = inputHandler.current.value;
     let rating = ratingValue;
 
-    if(rating != 0){
+    if(rating !== 0){
       sendReview()
     }else{
       toast.warning("Ups! You can't post a review without a rating!", {
@@ -72,9 +72,7 @@ const Reviews = (props) => {
         }
       }).catch(err => console.log(err));
   }
-  allReviews.map(review =>{
-    console.log(review.user)
-  })
+  
   return (
     <div className="reviews-section">
       <h4 className="reviews-title">Worker Reviews</h4>

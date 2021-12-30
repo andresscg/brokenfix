@@ -24,9 +24,9 @@ const WorkerCard = (props) => {
             </div>
           </div>
           <div className="worker-schedule">
-            {schedule.map((day) => {
+            {schedule.map((day, index) => {
               return (
-                <div className="schedule-day">
+                <div key={index} className="schedule-day">
                   <p className="day">{day.day}</p>
                   <p className="availability">
                     7am - 12pm: {day.morning ? "Available" : "Not Available"}

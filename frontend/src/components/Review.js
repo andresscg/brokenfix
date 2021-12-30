@@ -6,13 +6,9 @@ import {toast} from 'react-toastify'
 
 const Review = (props) => {
 
-  const userId = useSelector(state => state.users.user._id)
   const token = useSelector(state => state.users.token)
   const inputHandler = useRef()
   const [shown, setShown] = useState(false)
-  const allowReview = props.newReview.user._id === userId
-  console.log(userId)
-  console.log(allowReview)
 
   useEffect(() => {
     setShown(false)
@@ -57,7 +53,7 @@ const Review = (props) => {
               {props.newReview.rating}
               <i className="fas fa-star rating-star" style={{color: '#c2b617'}}></i>
             </p>
-            {allowReview ? <i className="fas fa-trash-alt delete" onClick={confirmAlert}></i> : null}
+            {/* {allowReview ? <i className="fas fa-trash-alt delete" onClick={confirmAlert}></i> : null} */}
           </div>
       </div>
     </div>

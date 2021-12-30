@@ -41,9 +41,9 @@ const Hero = () => {
         <img id="bgheroimg" src="../assets/hero2.png" alt="herobackground"/>
       </div>
       <div className='buttonshero'>
-        {servicesHome.map((service)=>{
+        {servicesHome.map((service, index)=>{
           return( 
-            <button  className='btnhero'><Link to={service.id}><img className='imgbtn' src={service.img} /></Link></button>
+            <button key={index} className='btnhero'><Link to={service.id}><img className='imgbtn' src={service.img} /></Link></button>
           )
         })}
         
