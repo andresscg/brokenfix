@@ -15,7 +15,7 @@ const WorkerCard = (props) => {
             </h3>
             <div className="worker-picture-active">
               <div
-                style={{ backgroundImage: `url(${img}.jpg)` }}
+                style={{ backgroundImage: `url(${img})` }}
                 className="worker-picture"
               ></div>
             </div>
