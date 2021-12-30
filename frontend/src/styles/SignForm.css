@@ -428,22 +428,22 @@ form.sign-in-form {
 }
 @media (max-height: 869px) {
   .container-sign {
-    height: 120vh;
+    height: 140vh;
   }
 }
 @media (max-height: 770px) {
   .container-sign {
-    height: 150vh;
+    height: 160vh;
   }
 }
 @media (max-height: 670px) {
   .container-sign {
-    height: 150vh;
+    height: 180vh;
   }
 }
 @media (max-height: 570px) {
   .container-sign {
-    height: 170vh;
+    height: 200vh;
   }
 }
 /* AUTOCOMPLET STYLES */

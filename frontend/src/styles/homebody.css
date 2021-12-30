@@ -1,150 +1,161 @@
-.hbtitle{
-    display: flex;
+.hbtitle {
+    display       : flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
+    align-items   : center;
+    margin-top    : 2rem;
+
+
 }
-.hbh2{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+.home-service {
+    justify-content : center;
+    text-align      : center;
+    width           : 100%;
+    background-color: rgba(12, 180, 48, 0.733);
+}
+
+.hbh2 {
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    font-size: 45px;
+    font-size  : 45px;
+    color      : #fff;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
 }
-.bhimg{
+
+.bhimg {
     margin-top: 3rem;
-    width: 85%;
-    z-index: -1;
+    width     : 85%;
+    z-index   : -1;
 }
-.placeforcomments{
-    display: flex;
-    flex-direction: column;
-    margin-left: 61.3rem;
+
+.placeforcomments {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    margin-left     : 61.3rem;
     background-color: white;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.082);
-    border-right: none;
-    width: 28%;
-    height: 12rem;
-    margin-top: -5rem;
-    z-index: 5;
+    border-style    : solid;
+    border-color    : rgb(12, 207, 70);
+    box-shadow      : 3px 3px 8px rgba(0, 0, 0, 0.37);
+    width           : 28%;
+    height          : 12rem;
+    margin-top      : -5rem;
+    z-index         : 5;
+    border-radius   : 4px;
 }
-.social{
-    width: 85px;
-    height: 85px;
-    object-fit: cover;
-    display: flex;
-    margin-left: 1rem;
-    border-radius: 50%;
+
+.social {
+    width          : 110px;
+    height         : 110px;
+    object-fit     : cover;
+    display        : flex;
+    margin-left    : 1rem;
+    border-radius  : 10%;
     justify-content: center;
-    border: var(--navBar) solid 3px;
-    z-index: 12;
+    border         : var(--navBar) solid 3px;
+    z-index        : 12;
 }
-.blockquote-footer{
-    margin-top: 1rem;
+
+.blockquote-footer {
+    margin-top : 1rem;
     margin-left: 16rem;
 }
+
+
+@media (max-width: 1440px) {
+    .placeforcomments {
+        margin-left: 58.2rem;
+    }
+
+    .blockquote-footer {
+        margin-left: 10rem;
+    }
+
+}
+
 @media (max-width: 1030px) {
-    .bhimg{
+    .bhimg {
         width: 80%;
     }
-    .placeforcomments{
+
+    .placeforcomments {
         margin-left: 39.8rem;
     }
-    .blockquote{
+
+    .blockquote {
         font-size: 14px;
     }
-    .blockquote-footer{
+
+    .blockquote-footer {
         margin-left: 10rem;
     }
+
 }
+
 @media (max-width:770px) {
-    .placeforcomments{
+    .placeforcomments {
         margin-left: 29.8rem;
-        height: 8rem;
+        height     : 8rem;
     }
-    .social{
-        width: 60px;
+
+    .social {
+        width : 60px;
         height: 60px;
     }
-    .blockquote-footer{
+
+    .blockquote-footer {
         margin-left: 6rem;
     }
-    .blockquote{
+
+    .blockquote {
         font-size: 9px;
     }
-    .bhimg{
+
+    .bhimg {
         margin-top: 1rem;
     }
-    .hbh2{
+
+    .hbh2 {
         font-size: 30px;
     }
+
 }
+
 @media (max-width:430px) {
-    .placeforcomments{
+    .placeforcomments {
         margin-left: 17.8rem;
-        height: 8rem;
-        margin-top: -3rem;
+        height     : 8rem;
+        margin-top : -2rem;
     }
-    .social{
-        width: 40px;
+
+    .social {
+        width : 40px;
         height: 40px;
+        margin-top: 1rem;
     }
-    .blockquote-footer{
+
+    .blockquote-footer {
         margin-left: 2rem;
     }
-    .blockquote{
+
+    .blockquote {
         font-size: 8px;
     }
-    .bhimg{
+
+    .bhimg {
         margin-top: 1rem;
-        width: 90%;
-        
+        width     : 90%;
+
     }
-    .hbh2{
+
+    .hbh2 {
         font-size: 30px;
     }
+
 }
-@media (max-width:385px){
-    .herotext{
-        margin-top: 1rem;
-    }
+
+@media (max-width:380px){
     .placeforcomments{
-        margin-left: 12.3rem;
-        height: 6rem;
-        margin-top: -2rem;
-        width: 10rem;
-    }
-    .social{
-        width: 40px;
-        height: 40px;
-    }
-    .blockquote-footer{
-        margin-left: 3rem;
-    }
-    .blockquote{
-        font-size: 8px;
-    }
-    .bhimg{
-        margin-top: 1rem;
-        width: 90%;
-        
-    }
-    .hbh2{
-        font-size: 30px;
-    }
-}
-@media (max-width: 375px){
-    .placeforcomments{
-        margin-left: 12.4rem;
-        height: 6rem;
-        margin-top: -1rem;
-        width: 9rem;
-    } 
-    .blockquote{
-        font-size: 7px;
-    }
-}
-@media (max-width: 320px){
-    .placeforcomments{
-        margin-left: 10rem;
+        margin-left: 16rem;
     }
 }

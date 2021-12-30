@@ -12,13 +12,15 @@ const Hero = () => {
         </div>
         <img id="bgheroimg" src="../assets/hero2.png" alt="herobackground"/>
       </div>
+      <div>
       <div className='buttonshero'>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/cleaning.png" /></button>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/Electrician.png" /></button>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/gas.png" /></button>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/plumber.png" /></button>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/carpenter.png" /></button>
-        <button  className='btnhero'><img className='imgbtn' src="../assets/locksmit.png" /></button>
+        <button  className='btnhero'><Link to="/service/61c8d6cc34922188861306ec"><img className='imgbtn' src="../assets/cleaning.png" /></Link></button>
+        <button  className='btnhero'><Link to="/service/61c8ccaceab2f20b23a82555"><img className='imgbtn' src="../assets/Electrician.png" /></Link></button>
+        <button  className='btnhero'><Link to="/service/61c8cd18eab2f20b23a82558"><img className='imgbtn' src="../assets/plumber.png" /></Link></button>
+        <button  className='btnhero'><Link to="/service/61c8d2d5eab2f20b23a8255c"><img className='imgbtn' src="../assets/gas.png" /></Link></button>
+        <button  className='btnhero'><Link to="/service/61c8d326eab2f20b23a8255e"><img className='imgbtn' src="../assets/carpenter.png" /></Link></button>
+        <button  className='btnhero'><Link to="/service/61c8d29eeab2f20b23a8255a"><img className='imgbtn' src="../assets/locksmit.png" /></Link></button>
+      </div>
       </div>
     </>
   )

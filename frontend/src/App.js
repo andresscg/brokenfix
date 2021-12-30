@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 import usersActions from './redux/actions/usersActions';
 import { ToastContainer } from 'react-toastify'
 import AdminPanel from './pages/AdminPanel'
+import Howto from './pages/HowToUse';
+
 const App = (props) => {
 
   const { authUser } = props
@@ -30,7 +32,7 @@ const App = (props) => {
         {(props.range === 'B' || props.range === 'A') && <Route path="/admin-panel" element={<AdminPanel />} />}
         <Route path="/services/:id" element={<Service />} />
         {!props.token && <Route path="/sign" element={<Sign />} />}
-
+        <Route path="/howtouse" element={<Howto/>}/>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
