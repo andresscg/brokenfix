@@ -1,4 +1,4 @@
-const Worker = require('../models/worker');
+const Worker = require('../models/Worker');
 
 const workerControllers = {
     addWorker: async (req, res) => {
