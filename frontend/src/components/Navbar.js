@@ -14,14 +14,14 @@ const Navbar = (props) => {
     e.preventDefault()
     props.logOut()
   }
-
+  const menuClass = click ? "nav-menu show" : "nav-menu"
   return (
     <div className="nav-container">
       <Link to='/' >
         <img src="./assets/logo.png" alt="logo" className="nav-logo" />
       </Link>
-      <div className={click ? "nav-menu show" : "nav-menu"}>
-      {(props.role === 'A' || props.role === 'B') && <Link to="/admin-panel" className='navbar-links'>
+      <div className={menuClass}>
+        {(props.role === 'A' || props.role === 'B') && <Link to="/admin-panel" className='navbar-links'>
           Admin Panel
         </Link>}
         <Link to="/" className='navbar-links' onClick={closeMenu}>
@@ -33,6 +33,7 @@ const Navbar = (props) => {
         <Link to='/howtouse' className='navbar-links' onClick={closeMenu}>
           How to use
         </Link>
+
         {!props.user ?
           <div className='cont-log-sign'>
             <Link to="/sign" className='navbar-links' onClick={closeMenu}>
@@ -49,6 +50,7 @@ const Navbar = (props) => {
           </div>
         }
       </div>
+
       <div className='btn-menu' onClick={openNavBar} >
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
       </div>

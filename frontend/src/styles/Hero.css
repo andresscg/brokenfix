@@ -66,7 +66,7 @@
     align-items: flex-end;
   }
   #bgheroimg {
-    height: 60vh;
+    height: 55vh;
     width: 75%;
     margin-top: 0rem;
   }
@@ -97,6 +97,15 @@
     margin-bottom: 0.5rem;
   }
 }
+@media (max-width: 1250px) {
+  .heroAboutus {
+    font-size: 50px;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    margin-top: 0rem;
+  }
+}
+
 @media (max-width: 1030px) {
   .heroAboutus {
     font-size: 35px;
