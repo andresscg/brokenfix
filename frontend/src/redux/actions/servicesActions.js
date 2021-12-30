@@ -3,7 +3,7 @@ import axios from "axios";
 const servicesActions = {
   getServices: () => {
     return async (dispatch, getState) => {
-      let response = await axios.get('http://localhost:4000/api/services')
+      let response = await axios.get('https://brokandfix.herokuapp.com/api/services')
       if(!response.data.success) {
         throw new Error(response.data.error)
       }
