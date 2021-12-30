@@ -3,7 +3,7 @@ import axios from 'axios';
 const workersActions = {
   getWorkersByService: (id) => {
     return async (dispatch, getState) => {
-      let response = await axios.get(`http://localhost:4000/api/workers/services/${id}`)
+      let response = await axios.get(`https://brokandfix.herokuapp.com/api/workers/services/${id}`)
       if(!response.data.success){
         throw new Error('Problem communicating with server')
       }
@@ -13,7 +13,7 @@ const workersActions = {
   handleReview: (id, review, token) => {
     return async () => {
       try {
-        let response = await axios.put(`http://localhost:4000/api/rate/worker/${id}`, {review}, {
+        let response = await axios.put(`https://brokandfix.herokuapp.com/api/rate/worker/${id}`, {review}, {
           headers: {
             Authorization: 'Bearer ' + token
           }
@@ -28,7 +28,7 @@ const workersActions = {
     return async () => {
       let response;
       try{
-        response = await axios.put(`http://localhost:4000/api/worker/reviews/${id}`, {reviewId},{
+        response = await axios.put(`https://brokandfix.herokuapp.com/api/worker/reviews/${id}`, {reviewId},{
           headers: {
             Authorization: "Bearer " + token
           }
