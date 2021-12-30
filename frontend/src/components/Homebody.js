@@ -5,10 +5,13 @@ const Homebody = () =>{
     return(
         <>
             <div className="hbtitle">
+                <div className="home-service">
                 <h2 className="hbh2">Home services</h2>
+                </div>
             <img className="bhimg" src="../assets/bhimg.jpg"/>
            </div>
-           <div className="placeforcomments">
+           
+            <div className="placeforcomments">
                     <img className="social" src="../assets/social.jpg"/>
                      <blockquote className="blockquote m-3">
                          <p>

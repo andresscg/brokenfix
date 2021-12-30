@@ -28,21 +28,21 @@ const Footer = () => {
                     </div>
           </nav>
         </div>
-      </div>
-      <div className="footer-iconos d-flex justify-content-around">
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-instagram"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-twitter"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-facebook"></i>
-        </h6>
-        <h6 className="fs-4 text-light">
-          <i class="bi bi-whatsapp"></i>
-        </h6>
-      </div>
+      </div >
+  <div className="footer-iconos d-flex justify-content-around">
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-instagram"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-twitter"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-facebook"></i>
+    </h6>
+    <h6 className="fs-4 text-light">
+      <i class="bi bi-whatsapp"></i>
+    </h6>
+  </div>
     </>
   );
 };
