@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
+import '../App.css'
 
 const AdminPanel = (props) => {
     useEffect( () => {
@@ -9,8 +10,8 @@ const AdminPanel = (props) => {
     }, [])
 
     return (
-        <div >
-            <div styles={{ display: 'flex', flexDirection: 'column' }} className='All Users'>
+        <div className="admin-panel">
+            <div style={{ display: 'flex', flexDirection: 'column' }} className='all-users'>
                 <h2>Users</h2>
                 {props.users && props.users.length > 0 && props.users.filter(user => props.role === 'A' ? (user.range !== 'A') : (user.range !== 'A' && user.range !== 'B')).map(user =>
                     <div className='user-card' key={user._id} style={{ display: 'flex' }}>
@@ -20,7 +21,7 @@ const AdminPanel = (props) => {
                         <div style={{ marginLeft: '1rem' }} className='user-delete'>
                             <i style={{ cursor: 'pointer' }} onClick={() => {
                                 props.deleteUser(user._id)
-                            }} className="fas fa-times"></i>
+                            }} className="fas fa-times delete-user"></i>
                         </div>
                     </div>
                 )}

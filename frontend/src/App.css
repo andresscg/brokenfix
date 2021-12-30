@@ -66,3 +66,44 @@
 .workers-cards {
   width: 100%;
 }
+
+.admin-panel {
+  min-height: 70vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-panel-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.all-users {
+  background-color: rgba(21,165,60,1);
+  color: #fff;
+  align-items: center;
+  padding: 25px 10px;
+  border-radius: 20px;
+  border: 3px solid #242424;
+  gap: 10px;
+  width: 80%;
+}
+
+.delete-user {
+  background-color: #242424;
+  padding: 5px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%
+}
+
+.user-content {
+  font-size: 20px;
+}
