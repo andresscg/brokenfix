@@ -8,6 +8,7 @@ import workersActions from '../redux/actions/workersActions'
 const Reviews = (props) => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.users.token)
+  const id = useSelector(state => state.users.user._id)
 
   const [renderReviews, setRenderReviews] = useState(false)
   const [allReviews, setAllReviews] = useState(props.workerReviews)
@@ -21,6 +22,7 @@ const Reviews = (props) => {
   const checkReview = () => {
     let commentText = inputHandler.current.value;
     let rating = ratingValue;
+
     if(rating != 0){
       sendReview()
     }else{
@@ -59,13 +61,26 @@ const Reviews = (props) => {
         })
       }).catch(err => console.log(err))
   }
- 
+
+  const deleteReview = (workerId, reviewId, token) => {
+    dispatch(workersActions.deleteReview(workerId, reviewId, token))
+      .then(res => {
+        if(res.success) {
+          setAllReviews(allReviews.filter(review => review._id !== reviewId))
+        }else{
+          throw new Error('Problem deleting comment')
+        }
+      }).catch(err => console.log(err));
+  }
+  allReviews.map(review =>{
+    console.log(review.user)
+  })
   return (
     <div className="reviews-section">
       <h4 className="reviews-title">Worker Reviews</h4>
       <div className="display-reviews">
         {allReviews.map(review => {
-          return <Review key={review._id} newReview={review} />
+          return <Review key={review._id} newReview={review} deleteReview={deleteReview} />
         })}
       </div>
       <div className="input-review-container">

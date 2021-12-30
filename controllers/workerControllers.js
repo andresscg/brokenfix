@@ -118,24 +118,35 @@ const workerControllers = {
             res.json({ success: false, error })
         }
     },
+    // deleteReview: async (req, res) => {
+    //     const id = req.params.id
+    //     const reviewId = req.params.reviewId
+    //     try {
+    //         if (req.user) {
+    //             const worker = await Worker.findOne({ _id: id })
+    //             const deleteReviewIndex = worker.reviews.findIndex(workerReview => workerReview._id === reviewId)
+    //             worker.reviews.splice(deleteReviewIndex, 1)
+    //             await worker.save()
+    //             res.json({ success: true, msg: 'Review deleted successfully', reviews: worker.reviews })
+
+    //         } else {
+    //             res.json({ success: false, error: 'Unauthorized User, you must be login' })
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // },
     deleteReview: async (req, res) => {
-        const id = req.params.id
-        const reviewId = req.params.reviewId
-        try {
-            if (req.user) {
-                const worker = await Worker.findOne({ _id: id })
-                const deleteReviewIndex = worker.reviews.findIndex(workerReview => workerReview._id === reviewId)
-                worker.reviews.splice(deleteReviewIndex, 1)
-                await worker.save()
-                res.json({ success: true, msg: 'Review deleted successfully', reviews: worker.reviews })
-
-            } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be login' })
+        try{
+            let deletedReview = await Worker.findOneAndUpdate({"reviews._id": req.body.reviewId}, {$pull: {reviews: {_id: req.body.reviewId}}}).populate('reviews.user')
+            if(deletedReview){
+                res.json({success: true})
+            }else{
+                throw new Error ('Problem deleting review')
             }
-        } catch (error) {
-            console.log(error)
+        }catch(err){
+            res.json({success: false, response:err})
         }
-    },
-
+    }
 };
 module.exports = workerControllers;

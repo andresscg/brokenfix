@@ -28,8 +28,8 @@ Router.route('/user/signin')
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
 
-Router.route('/worker/:id/review/:reviewId')
-    .delete(passport.authenticate('jwt', { session: false }), deleteReview)
+Router.route('/worker/reviews/:id')
+    .put(passport.authenticate('jwt', { session: false }), deleteReview)
 
 
 // rating handler
