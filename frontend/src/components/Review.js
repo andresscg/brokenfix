@@ -55,6 +55,7 @@ const Review = (props) => {
             </p>
             <p className="review-rating">
               {props.newReview.rating}
+              <i className="fas fa-star rating-star" style={{color: '#ffff00'}}></i>
             </p>
             {allowReview ? <i className="fas fa-trash-alt delete" onClick={confirmAlert}></i> : null}
           </div>
