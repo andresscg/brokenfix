@@ -4,14 +4,12 @@ const usersReducer = (
         token: null,
         img: null,
         role: null,
-        users: [],
-        aux: []
+        users: null,
     }, action) => {
     if (action.type === 'LOG_USER') {
         localStorage.setItem('token', action.payload.token);
         return {
             ...state,
-
             user: action.payload,
             token: action.payload.token,
             img: action.payload.img,
@@ -32,10 +30,9 @@ const usersReducer = (
         }
 
     } else if (action.type === 'DELETE_USER') {
-        const filtered = state.users.filter(userDB => userDB._id !== action.payload)
         return {
             ...state,
-            users: filtered
+            users: state.users.filter(userDB => userDB._id != action.payload)
         }
     } else {
 
