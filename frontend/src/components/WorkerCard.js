@@ -19,10 +19,9 @@ const WorkerCard = (props) => {
                 style={{ backgroundImage: `url(${img})` }}
                 className="worker-picture"
               ></div>
-            </div>
             <button
               className="get-in-touch"
-              style={{border: 'none', padding: '5px 15px', backgroundColor: '#15a53', color: '#fff', cursor: 'pointer'}}
+              style={{border: 'none', padding: '5px 15px', backgroundColor: '#15a530', color: '#fff', cursor: 'pointer'}}
               onClick={() => {
                 toast.success("The worker will contact you soon!", {
                   position: "bottom-right",
@@ -37,6 +36,7 @@ const WorkerCard = (props) => {
             >
               Get in touch
             </button>
+            </div>
             <div>
               <h3 className="worker-service">{services.name}</h3>
             </div>
