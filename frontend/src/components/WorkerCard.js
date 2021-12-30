@@ -14,7 +14,6 @@ const WorkerCard = (props) => {
             <h3 className="worker-name">
               {name} {lastName}
             </h3>
-            <div className="worker-img-button">
               <div className="worker-picture-active">
                 <div
                   style={{ backgroundImage: `url(${img})` }}
@@ -43,7 +42,6 @@ const WorkerCard = (props) => {
               >
                 Get in touch
               </button>
-            </div>
             </div>
             <div>
               <h3 className="worker-service">{services.name}</h3>
