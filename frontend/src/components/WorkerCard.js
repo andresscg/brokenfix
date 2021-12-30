@@ -19,6 +19,23 @@ const WorkerCard = (props) => {
                 className="worker-picture"
               ></div>
             </div>
+            <button
+              className="get-in-touch"
+              style={{border: 'none', padding: '5px 15px', backgroundColor: '#15a53', color: '#fff', cursor: 'pointer'}}
+              onClick={() => {
+                toast.success("The worker will contact you soon!", {
+                  position: "bottom-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              }}
+            >
+              Get in touch
+            </button>
             <div>
               <h3 className="worker-service">{services.name}</h3>
             </div>
