@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/WorkerCard.css";
 import Reviews from "./Reviews";
+import {toast} from 'react-toastify'; 
 
 const WorkerCard = (props) => {
   const { _id, name, lastName, img, services, schedule, reviews } = props.data;
